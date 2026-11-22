@@ -164,6 +164,16 @@ footer{margin-top:3.5rem;font-size:.84rem;color:var(--ink-faint);border-top:1px 
 #sent.on{display:grid}
 #sent .box{background:var(--panel);border-radius:16px;padding:1.3rem 1.4rem;max-width:34rem;width:100%;box-shadow:var(--shadow)}
 #sent pre{white-space:pre-wrap;font:inherit;font-size:.88rem;background:var(--ground);border:1px solid var(--line-soft);border-radius:10px;padding:.7rem;max-height:40vh;overflow:auto}
+.vs .card p.ex{background:var(--ground);border:1px solid var(--line-soft);border-radius:10px;padding:.55rem .7rem;margin:.5rem 0}
+.vs .card p.ex b{display:inline-block;font-size:.78rem;color:var(--ink-faint);margin-right:.5rem}
+.reg-f{display:grid;grid-template-columns:1fr 1fr;gap:.7rem .9rem;margin:.8rem 0}
+.reg-f label{display:flex;flex-direction:column;gap:.25rem;font-size:.88rem;font-weight:700}
+.reg-f label.wide{grid-column:1/-1}
+.reg-f label.chk{flex-direction:row;align-items:center;gap:.5rem;grid-column:1/-1;font-weight:400;font-size:.95rem}
+.reg-f input[type=text],.reg-f input[type=email],.reg-f select,.reg-f textarea{font:inherit;font-weight:400;font-size:16px;padding:.5rem .7rem;border:1px solid var(--line);border-radius:10px;background:var(--ground);color:var(--ink);width:100%;box-sizing:border-box}
+.reg-f textarea{min-height:4.5rem;resize:vertical}
+.reg-f input[type=checkbox]{width:1.1rem;height:1.1rem}
+@media (max-width:560px){.reg-f{grid-template-columns:1fr}}
 @media print{nav.toc,#bar,.cm{display:none}details.faq>.a{display:block}}
 
 </style>
@@ -176,7 +186,7 @@ footer{margin-top:3.5rem;font-size:.84rem;color:var(--ink-faint);border-top:1px 
 </header>
 
 <nav class="toc" aria-label="目次">
-  <a href="#about">1 何をするのか</a><a href="#why">2 なぜ今</a><a href="#path">3 参加の流れ</a><a href="#game">4 志ゲーム</a><a href="#rules">5 決めていること</a><a href="#now">6 現在地</a><a href="#join">7 関わり方</a><a href="#faq">8 よくある質問</a><a href="#who">9 発起人</a><a href="#next">10 最初の一歩</a>
+  <a href="#about">1 何をするのか</a><a href="#why">2 なぜ今</a><a href="#path">3 参加の流れ</a><a href="#game">4 志ゲーム</a><a href="#rules">5 決めていること</a><a href="#now">6 現在地</a><a href="#join">7 関わり方</a><a href="#faq">8 よくある質問</a><a href="#who">9 発起人</a><a href="#next">10 最初の一歩</a><a href="#register">賛同の登録</a>
 </nav>
 
 <div class="keys">
@@ -195,9 +205,10 @@ footer{margin-top:3.5rem;font-size:.84rem;color:var(--ink-faint);border-top:1px 
 <h3>志とは</h3>
 <div class="callout gold"><b>志とは、命を世の中への貢献に使うと決めて生きること。</b><br>内から湧く衝動と、世の中が求めることが重なる所にあります。最初は仮決めでかまいません。</div>
 <div class="vs">
-  <div class="card"><h3>夢<small>内向き</small></h3><p>自分がこうなりたい、こうしたい。</p></div>
-  <div class="card"><h3>志<small>外向き</small></h3><p>世の中のために、命をどう使うか。一生ものです。職業や手段は、志を果たすために更新していきます。</p></div>
+  <div class="card"><h3>夢<small>ベクトルが内向き</small></h3><p>自分がこうなりたい、こうしたい。</p><p class="ex"><b>例</b>アイドルになりたい。</p><p class="note" style="margin-bottom:0">これだけでは、協力が集まりづらい。</p></div>
+  <div class="card"><h3>志<small>ベクトルが外向き</small></h3><p>世の中のために、命をどう使うか。</p><p class="ex"><b>例</b>アイドルになって、パフォーマンスでファンや多くの人を元気付けられる存在になりたい。</p><p class="note" style="margin-bottom:0">応援したくなり、協力が集まりやすい。</p></div>
 </div>
+<p>このように、夢もベクトルを内から外へ広げることで志が加わり、協力が集まりやすくなります。志は一生もので、職業や手段は、志を果たすために更新していきます。</p>
 <p>海外で広まった IKIGAI（生きがい）は、好きなこと・得意なこと・必要とされること・収入になることが重なる所、という職業や役割の話です。志は、命の使い方、生き様の話です。志を軸に生きる生き方には、IKIGAI が含まれています。英語の Passion・Dream・Mission では訳しきれないので、KOKOROZASHI のまま世界へ広めます。</p>
 <h3>なぜ、ゲームにするのか</h3>
 <ul class="plain">
@@ -281,51 +292,74 @@ footer{margin-top:3.5rem;font-size:.84rem;color:var(--ink-faint);border-top:1px 
     <p>修了した方には、後日、神社で志を奉納するツアーをご案内します。</p>
   </div>
 </div>
-<p>若者向けと大人向けは分けます。大人向けには、若者の志を応援する側の関わり方（応援の作法）を用意します。料金は検討中です。</p>
+<div class="card">
+  <h3>誰が参加するのか</h3>
+  <p><b>メインの対象は、将来を考え始めた若者（10代〜20代前半）です。</b>この世代が、人生の通過儀礼としてこのプログラムを受ける。それを定番にしていきます。</p>
+  <ul class="plain">
+    <li>志ゲームのクエストで、若者がいろいろなプロジェクトを立ち上げ、そこから大人を巻き込んでいきます。たとえば、すでに志を持って活動している社会起業家やNPOを取材し、発信していくプロジェクトです。</li>
+    <li>親も、大人も、同時に受けられます。大人は、サポーターとして志ゲームに参加できます。</li>
+  </ul>
+  <h3>参加の形は3つ</h3>
+  <div class="keys" style="margin:.6rem 0 1rem">
+    <div class="key"><b>プレイヤー</b><span>自分の志を立て、志ゲームで学び、実践する人。年齢を問いません。</span></div>
+    <div class="key"><b>サポーター</b><span>若者の志を応援する大人（18歳以上）。支援やクエストの依頼、相談相手として関わります。</span></div>
+    <div class="key"><b>両方</b><span>自分の志にも取り組みながら、若者も応援する大人（18歳以上）。画面を切り替えて使います。</span></div>
+  </div>
+  <p>17歳以下（未成年）の方はプレイヤーとして参加し、18歳以上の方は3つから選びます。</p>
+  <h3>若者向けと大人向けを分ける理由</h3>
+  <ul class="plain">
+    <li><b>立場が違うため：</b>若者は、自分の志を立てる当事者です。大人は、それに加えて若者を応援する側にもなります。大人向けのセミナーは、同じ内容に、応援する側の関わり方（応援の作法）を足します。</li>
+    <li><b>未成年を守るため：</b>志ゲームでは、17歳以下（未成年）は未成年だけの枠、18歳以上は全員が一緒の枠にする方向です。未成年と大人が関わる場面には、安全のルール（例：個別のチャットではなく、周りから見える場や保護者を通して関わる）を設けます。</li>
+  </ul>
+  <p class="note" style="margin-bottom:0">料金と、安全のルールの中身は検討中です。</p>
+</div>
 <div class="cm" data-c="03 参加の流れとセミナー"></div>
 
 <h2 id="game"><span class="no">04</span>志ゲームで、できること</h2>
 <p class="sub">志を立てた人が、仲間と学び、実践し、世界を良くするクエストに挑む場です。すべて会員サイト（アプリ）で管理します。</p>
 <div class="keys">
   <div class="key"><b>習慣化</b><span>身につけたいことを選んでセットし、毎日の取り組みを記録します。レベルやパラメーターが上がります。</span></div>
-  <div class="key"><b>学び</b><span>学び方の学びと、内面を育てる学び、実用的なスキルの学びがあります。</span></div>
+  <div class="key"><b>学び</b><span>AI時代の学び方、マインドセット、本質的な知識、実用的なスキルを、体系的に学べます。</span></div>
   <div class="key"><b>仲間</b><span>個人チャット、グループチャットで、同じ志を持つ仲間とつながります。</span></div>
   <div class="key"><b>クエスト</b><span>自治体、ボランティア団体、社会起業家などからの報酬つきの依頼に、仲間とパーティーを組んで挑みます。</span></div>
   <div class="key"><b>自分たちのプロジェクト</b><span>参加者同士で企画を立て、プロジェクト管理の機能で進めます。</span></div>
   <div class="key"><b>大人や企業とのつながり</b><span>サポーターの大人や企業から、支援やコンタクトがもらえます。</span></div>
 </div>
+<h3>学べること</h3>
+<p>次の4つを体系的に学べます。ゲームアプリで、身につく所まで見える形にします。</p>
 <div class="cols">
-  <div class="card"><h3>内面を育てる</h3><ul class="plain"><li>自分を整える：セルフコントロール、感情やストレスの扱い方、呼吸と姿勢</li><li>自分を知る：脳・意識・感情・身体の仕組み</li><li>在り方：自己信頼、感謝、謙虚さ</li><li>人と関わる：コミュニケーション、社会の基礎知識</li><li>学び続ける力：学び方の学び、AIを使った知識の身につけ方</li></ul></div>
-  <div class="card"><h3>実用的なスキル</h3><ul class="plain"><li>英語などの言語</li><li>体と健康</li><li>お金の稼ぎ方</li><li>マーケティングなどのビジネス</li><li>スタートアップの立ち上げ方</li><li>海外の先進的な学び（シリコンバレーの起業家教育など）</li></ul></div>
+  <div class="card"><h3>1 AI時代の学び方の学び</h3><ul class="plain"><li>学び方そのものの学び</li><li>AIを使った知識の身につけ方</li><li>学び続ける力</li></ul></div>
+  <div class="card"><h3>2 マインドセット</h3><ul class="plain"><li>在り方：自己信頼、感謝、謙虚さ</li><li>自分を整える：セルフコントロール、感情やストレスの扱い方、呼吸と姿勢</li></ul></div>
+  <div class="card"><h3>3 本質的な知識</h3><ul class="plain"><li>自分を知る：脳・意識・感情・身体の仕組み</li><li>人と関わる：コミュニケーション、社会の基礎知識</li></ul></div>
+  <div class="card"><h3>4 実用的なスキル</h3><ul class="plain"><li>英語などの言語</li><li>体と健康</li><li>お金の稼ぎ方</li><li>マーケティングなどのビジネス</li><li>スタートアップの立ち上げ方</li></ul></div>
 </div>
+<p>ほかにも、世界のエリート水準の本質的な学びや、最先端の学び（シリコンバレーの起業家教育など）を、キャッチアップし続けられます。</p>
 <p>社会起業家など、いろんな分野で実績のある人とのコラボ講義を、次々にリリースしていきます。プレイヤー（若者）とサポーター（支える大人）は同じアプリを使い、見える画面が変わります。未成年と大人が関わるための安全ルールは、これから決めます。</p>
 <div class="cm" data-c="04 志ゲームでできること"></div>
 
 <h2 id="rules"><span class="no">05</span>先に決めていること</h2>
 <p class="sub">いちばん避けたいのは、尻すぼみよりも「変質」（政治団体化・神格化・金儲け・原理主義化）です。起きない構造を、最初から作ります。</p>
 <ol class="rules">
-  <li><b>政治的中立</b><span>すべての政治勢力から等距離</span></li>
-  <li><b>知的誠実</b><span>信じさせない。確かめさせる</span></li>
-  <li><b>収支の透明化</b><span>収入・支出・報酬の決め方を公開</span></li>
-  <li><b>原理主義の禁止</b><span>出口の自由、検証できること</span></li>
-  <li><b>運営の透明化</b><span>決裁権・変更手続きを公開</span></li>
-  <li><b>仮想敵を作らない</b><span>恐怖や敵意を燃料にしない</span></li>
+  <li><b>政治的中立と、仮想敵を作らないこと</b><span>すべての政治勢力から等距離。恐怖や敵意を燃料にしません</span></li>
+  <li><b>知的誠実と、原理主義の禁止</b><span>信じさせない。確かめさせる。出口の自由と、検証できること</span></li>
+  <li><b>運営と収支の透明化</b><span>決裁権・変更手続きと、収入・支出・報酬の決め方を公開</span></li>
 </ol>
 <div class="card">
-  <h3>お金の考え方</h3>
+  <h3>お金と運営の考え方</h3>
+  <p><b>法人の形と資金の集め方は、まだ決めていません。</b>いま検討している案のひとつが「二階建て」です。</p>
   <ul class="plain">
-    <li>出資（株）は受けません。</li>
+    <li><b>二階建ての案：</b>思想・教育と、理念が変質しないよう見守る役は、非営利の法人（一般社団法人など）が担います。アプリなどの事業は、株式会社が担います。決める力（議決権）と、お金を受け取る権利（配当）を分け、資金を出した人が理念を変えられない形を考えています。法的な形は、専門家に確認して決めます。</li>
+    <li>発起人が当面の決裁権を持ちますが、経営・マネジメントは、適任の方に任せていきたいと考えています。</li>
     <li>発起人は当面無報酬です。</li>
-    <li>初期メンバーの報酬は、役割に応じて見積もって記録し、利益が出たら後払いでお返しします。</li>
-    <li>大口の支援の形と条件は、専門家に確認して決めます。</li>
-    <li>法人は、一般社団法人で立ち上げる方針です。</li>
+    <li>立ち上げ期で予算のない段階の協力者への報酬は、役割や貢献度に応じて見積もって記録し、利益が出たら後払いでお返しを考えております。</li>
+    <li>創成期からの初期メンバーは、事業が育ったら相応のポジションと継続報酬を取っていただくつもりです。</li>
   </ul>
 </div>
 <div class="cm" data-c="05 先に決めていること・お金の考え方"></div>
 
 <h2 id="now"><span class="no">06</span>いま、どこまで進んでいるか</h2>
 <p class="sub">正直な現在地です。決まっている所と、これからの所を分けて書きます。</p>
-<div class="scroll"><table><tr><th class="num">No.</th><th>項目</th><th>いまの段階</th><th>これから必要なこと</th></tr><tr><td class="num">01</td><td><a href="#item-1">思想・理念</a></td><td><span class="v ok">作成中</span></td><td>執筆、共著者・賛同者のコメント集め、憲章の明文化</td></tr><tr><td class="num">02</td><td><a href="#item-2">セミナー</a></td><td><span class="v ok">骨格あり</span></td><td>細かい構成、ワーク設計、ワンネスの映像、大人向け「応援の作法」</td></tr><tr><td class="num">03</td><td><a href="#item-3">志ゲーム・アプリ</a></td><td><span class="v ok">コンセプト決定</span></td><td>仕様書、開発、中のコンテンツ（価値観・スキル・マインドセットのメニュー）</td></tr><tr><td class="num">04</td><td><a href="#item-4">広報・普及</a></td><td><span class="v hold">方針あり</span></td><td>ウェブサイト、発信計画、ファシリテーターの仕組み</td></tr><tr><td class="num">05</td><td><a href="#item-5">資金・お金</a></td><td><span class="v hold">仮決め</span></td><td>お返しの条件の具体化、収支公開の仕組み</td></tr><tr><td class="num">06</td><td><a href="#item-6">法人・法務</a></td><td><span class="v hold">方針あり</span></td><td>設立手続き、大口の資金の法的な形の専門家確認、後払い報酬の会計処理</td></tr><tr><td class="num">07</td><td><a href="#item-7">運営・組織</a></td><td><span class="v hold">方針あり</span></td><td>役割一覧、意思決定と乗っ取り防止のルール</td></tr><tr><td class="num">08</td><td><a href="#item-8">外部連携</a></td><td><span class="v hold">方針あり</span></td><td>連携先リスト、提携の形と料金</td></tr><tr><td class="num">09</td><td><a href="#item-9">ロードマップ</a></td><td><span class="v hold">想定あり</span></td><td>時期を入れた一枚のロードマップ</td></tr><tr><td class="num">10</td><td><a href="#item-10">効果測定</a></td><td><span class="v hold">基準は仮</span></td><td>参加者数、継続率、志を立てた人数などの指標</td></tr><tr><td class="num">11</td><td><a href="#item-11">ブランド・デザイン</a></td><td><span class="v hold">仮称の段階</span></td><td>名称決定、ロゴ、デザインのトーン</td></tr><tr><td class="num">12</td><td><a href="#item-12">リスク・危機対応</a></td><td><span class="v hold">方針あり</span></td><td>対応手順、責任者、未成年と大人の安全ルール</td></tr><tr><td class="num">13</td><td><a href="#item-13">個人情報・コンプライアンス</a></td><td><span class="v yet">これから</span></td><td>規約とプライバシーポリシー、保護者同意の仕組み</td></tr><tr><td class="num">14</td><td><a href="#item-14">サポート窓口</a></td><td><span class="v yet">これから</span></td><td>窓口、よくある質問、対応担当</td></tr><tr><td class="num">15</td><td><a href="#item-15">知的財産</a></td><td><span class="v yet">これから</span></td><td>権利の帰属と利用ルールの整理</td></tr></table></div>
+<div class="scroll"><table><tr><th class="num">No.</th><th>項目</th><th>いまの段階</th><th>これから必要なこと</th></tr><tr><td class="num">01</td><td><a href="#item-1">思想・理念</a></td><td><span class="v ok">作成中</span></td><td>執筆、共著者・賛同者のコメント集め、憲章の明文化</td></tr><tr><td class="num">02</td><td><a href="#item-2">セミナー</a></td><td><span class="v ok">骨格あり</span></td><td>細かい構成、ワーク設計、ワンネスの映像、大人向け「応援の作法」</td></tr><tr><td class="num">03</td><td><a href="#item-3">志ゲーム・アプリ</a></td><td><span class="v ok">コンセプト決定</span></td><td>仕様書、開発、中のコンテンツ（価値観・スキル・マインドセットのメニュー）</td></tr><tr><td class="num">04</td><td><a href="#item-4">広報・普及</a></td><td><span class="v hold">方針あり</span></td><td>ウェブサイト、発信計画、ファシリテーターの仕組み</td></tr><tr><td class="num">05</td><td><a href="#item-5">資金・お金</a></td><td><span class="v hold">検討中</span></td><td>資金の集め方の決定、お返しの条件の具体化、収支公開の仕組み</td></tr><tr><td class="num">06</td><td><a href="#item-6">法人・法務</a></td><td><span class="v hold">検討中</span></td><td>法人の形の決定、専門家への確認、設立手続き、後払い報酬の会計処理</td></tr><tr><td class="num">07</td><td><a href="#item-7">運営・組織</a></td><td><span class="v hold">方針あり</span></td><td>立ち上げ委員会の発足、役割一覧、意思決定と乗っ取り防止のルール、貢献度に応じた議決権などの仕組み</td></tr><tr><td class="num">08</td><td><a href="#item-8">外部連携</a></td><td><span class="v hold">方針あり</span></td><td>連携先リスト、提携の形と料金</td></tr><tr><td class="num">09</td><td><a href="#item-9">ロードマップ</a></td><td><span class="v hold">想定あり</span></td><td>時期を入れた一枚のロードマップ</td></tr><tr><td class="num">10</td><td><a href="#item-10">効果測定</a></td><td><span class="v hold">基準は仮</span></td><td>参加者数、継続率、志を立てた人数などの指標</td></tr><tr><td class="num">11</td><td><a href="#item-11">ブランド・デザイン</a></td><td><span class="v hold">仮称の段階</span></td><td>名称決定、ロゴ、デザインのトーン</td></tr><tr><td class="num">12</td><td><a href="#item-12">リスク・危機対応</a></td><td><span class="v hold">方針あり</span></td><td>対応手順、責任者、未成年と大人の安全ルール</td></tr><tr><td class="num">13</td><td><a href="#item-13">個人情報・コンプライアンス</a></td><td><span class="v yet">これから</span></td><td>規約とプライバシーポリシー、保護者同意の仕組み</td></tr><tr><td class="num">14</td><td><a href="#item-14">サポート窓口</a></td><td><span class="v yet">これから</span></td><td>窓口、よくある質問、対応担当</td></tr><tr><td class="num">15</td><td><a href="#item-15">知的財産</a></td><td><span class="v yet">これから</span></td><td>権利の帰属と利用ルールの整理</td></tr></table></div>
 <h3>いまの想定スケジュール</h3>
 <ul class="tl">
   <li class="now"><time>〜2026年12月</time>協力者集め（いまここです）</li>
@@ -344,7 +378,7 @@ footer{margin-top:3.5rem;font-size:.84rem;color:var(--ink-faint);border-top:1px 
 <h3 class="grp"><span>中身をつくる</span><small>本・セミナー・アプリ・見せ方・4項目</small></h3><div class="its"><article class="it" id="item-1">
 <header><span class="it-n">01</span><h3>思想・理念</h3><span class="v ok">作成中</span></header>
 <p class="it-w">思想編（理論編）、実践編、若者向けの本、憲章</p>
-<dl><dt>いま</dt><dd>企画書と書籍素材集を作成中です。呼び方（思想編／理論編）はまだ決めていません。</dd><dt>これから必要なこと</dt><dd>執筆、共著者・賛同者のコメント集め、憲章の明文化</dd></dl>
+<dl><dt>いま</dt><dd>企画書と書籍素材集を作成中です。</dd><dt>これから必要なこと</dt><dd>執筆、共著者・賛同者のコメント集め、憲章の明文化</dd></dl>
 <div class="it-r"><b>力を借りたい役割</b><ul class="chips"><li>原稿の感想</li><li>共著・賛同コメント</li><li>編集・校正</li><li>英語版の翻訳</li><li>専門分野の監修（脳科学・心理学・歴史など）</li><li>若者目線のチェック</li><li>表紙・挿絵のデザイン</li><li>出版の実務</li><li>憲章づくりの相談役</li></ul></div>
 <div class="cm" data-c="関わり方 01 思想・理念"></div>
 </article><article class="it" id="item-2">
@@ -380,22 +414,22 @@ footer{margin-top:3.5rem;font-size:.84rem;color:var(--ink-faint);border-top:1px 
 <div class="cm" data-c="関わり方 08 外部連携"></div>
 </article></div>
 <h3 class="grp"><span>ささえる</span><small>お金・法人・運営・計画・5項目</small></h3><div class="its"><article class="it" id="item-5">
-<header><span class="it-n">05</span><h3>資金・お金</h3><span class="v hold">仮決め</span></header>
+<header><span class="it-n">05</span><h3>資金・お金</h3><span class="v hold">検討中</span></header>
 <p class="it-w">小口の会費・寄付、大口の支援、売上</p>
-<dl><dt>いま</dt><dd>出資（株）は受けません。大口の支援は、広告費などを出していただき、売上の一部からお返しする形を検討しています（条件と法的な形は、専門家に確認して決めます）。発起人は当面無報酬です。初期メンバーの報酬は役割ごとに見積もって記録し、利益が出たら後払いでお返しします。</dd><dt>これから必要なこと</dt><dd>お返しの条件の具体化、収支公開の仕組み</dd></dl>
+<dl><dt>いま</dt><dd>資金の集め方は、法人の形と合わせて検討中で、まだ決めていません。発起人は当面無報酬です。立ち上げ期の協力者への報酬は、役割や貢献度に応じて見積もって記録し、利益が出たら後払いでお返しを考えております。</dd><dt>これから必要なこと</dt><dd>資金の集め方の決定、お返しの条件の具体化、収支公開の仕組み</dd></dl>
 <div class="it-r"><b>力を借りたい役割</b><ul class="chips"><li>資金の支援者</li><li>支援者・企業の紹介</li><li>資金計画・ファイナンス担当</li><li>経理・会計</li><li>収支報告の作成</li><li>クラウドファンディングの運営</li></ul></div>
 <div class="cm" data-c="関わり方 05 資金・お金"></div>
 </article><article class="it" id="item-6">
-<header><span class="it-n">06</span><h3>法人・法務</h3><span class="v hold">方針あり</span></header>
-<p class="it-w">一般社団法人の設立、契約、将来の公益認定</p>
-<dl><dt>いま</dt><dd>一般社団法人で立ち上げる方針です。</dd><dt>これから必要なこと</dt><dd>設立手続き、大口の資金の法的な形の専門家確認、後払い報酬の会計処理</dd></dl>
-<div class="it-r"><b>力を借りたい役割</b><ul class="chips"><li>弁護士</li><li>税理士</li><li>司法書士・行政書士（法人設立）</li><li>金融規制に詳しい専門家</li><li>公益認定の経験者</li></ul></div>
+<header><span class="it-n">06</span><h3>法人・法務</h3><span class="v hold">検討中</span></header>
+<p class="it-w">法人の形の決定と設立、契約</p>
+<dl><dt>いま</dt><dd>法人の形は、まだ決めていません。非営利の法人（思想・教育と、理念の見守り役）と株式会社（アプリなどの事業）の「二階建て」などを検討しています。</dd><dt>これから必要なこと</dt><dd>法人の形の決定、専門家への確認、設立手続き、後払い報酬の会計処理</dd></dl>
+<div class="it-r"><b>力を借りたい役割</b><ul class="chips"><li>弁護士</li><li>税理士</li><li>司法書士・行政書士（法人設立）</li><li>金融規制に詳しい専門家</li><li>会社と非営利法人の設計に詳しい方</li><li>公益認定の経験者</li></ul></div>
 <div class="cm" data-c="関わり方 06 法人・法務"></div>
 </article><article class="it" id="item-7">
 <header><span class="it-n">07</span><h3>運営・組織</h3><span class="v hold">方針あり</span></header>
-<p class="it-w">意思決定のルール、役割分担、運営チーム</p>
-<dl><dt>いま</dt><dd>当面は発起人が最終決裁をします。いずれ運営チームに任せます。</dd><dt>これから必要なこと</dt><dd>役割一覧、意思決定と乗っ取り防止のルール</dd></dl>
-<div class="it-r"><b>力を借りたい役割</b><ul class="chips"><li>運営チームのメンバー</li><li>プロジェクトマネージャー</li><li>事務局（日程調整・連絡）</li><li>組織づくりの相談役</li><li>理事・監事の候補</li></ul></div>
+<p class="it-w">意思決定のルール、役割分担、立ち上げ委員会、経営チーム</p>
+<dl><dt>いま</dt><dd>当面は発起人が決裁権を持ちます。経営・マネジメントは、適任の方に任せていく方針です。創設期の協力者で「立ち上げ委員会」をつくります。</dd><dt>これから必要なこと</dt><dd>立ち上げ委員会の発足、役割一覧、意思決定と乗っ取り防止のルール、貢献度に応じた議決権などの仕組み</dd></dl>
+<div class="it-r"><b>力を借りたい役割</b><ul class="chips"><li>立ち上げ委員会のメンバー</li><li>経営・マネジメントを担う方</li><li>プロジェクトマネージャー</li><li>事務局（日程調整・連絡）</li><li>組織づくりの相談役</li><li>理事・監事の候補</li></ul></div>
 <div class="cm" data-c="関わり方 07 運営・組織"></div>
 </article><article class="it" id="item-9">
 <header><span class="it-n">09</span><h3>ロードマップ</h3><span class="v hold">想定あり</span></header>
@@ -438,30 +472,46 @@ footer{margin-top:3.5rem;font-size:.84rem;color:var(--ink-faint);border-top:1px 
 
 <h2 id="faq"><span class="no">08</span>よくある質問</h2>
 <p class="sub">質問を押すと、答えが開きます。</p>
-<details class="faq"><summary><span class="q">Q1</span>何を求められるのですか</summary><div class="a"><p>セミナーを受ける、受ける人を探す、協力者を探す、広める活動、アプリや中のコンテンツ作りなどです。何をするかは、下の「関わり方」の一覧からご本人が選びます。関わる時間は、全員「できる範囲で」です。</p><div class="cm" data-c="よくある質問 Q1 何を求められるのですか"></div></div></details>
+<details class="faq"><summary><span class="q">Q1</span>何を求められるのですか</summary><div class="a"><p>セミナーを受ける、受ける人を探す、協力者を探す、広める活動、アプリや中のコンテンツ作りなどです。何をするかは、「関わり方」の一覧からご本人が選びます。関わる時間は、全員「できる範囲で」です。</p><div class="cm" data-c="よくある質問 Q1 何を求められるのですか"></div></div></details>
 <details class="faq"><summary><span class="q">Q2</span>本当に形になるのですか</summary><div class="a"><p><b>これまで：</b>前身にあたる志教育プロジェクトが、志を立てる場を学校で実際に回してきました。<br><b>いまあるもの：</b>企画書、書籍の素材集、この全体構成、セミナーの骨格。<br><b>これから：</b>書籍とセミナーの中身を具体化し、知り合いづてに参加者を集めて、プレのセミナーを回します。アプリは、AIを使った開発で原型ができています。</p><div class="cm" data-c="よくある質問 Q2 本当に形になるのですか"></div></div></details>
-<details class="faq"><summary><span class="q">Q3</span>誰がやっているのですか</summary><div class="a"><p>発起人は堀 勝哉です。小沢先生、出口光さん（志教育プロジェクト。顧問として人つなぎと普及）、溝江先生（関わり方はご本人が決めます）が関わっています。レノン・リー先生は検討中です。</p><div class="cm" data-c="よくある質問 Q3 誰がやっているのですか"></div></div></details>
-<details class="faq"><summary><span class="q">Q4</span>政治色はありませんか</summary><div class="a"><p>特定の政党や団体とは関係がありません。すべての政治勢力から等距離です。</p><div class="cm" data-c="よくある質問 Q4 政治色はありませんか"></div></div></details>
-<details class="faq"><summary><span class="q">Q5</span>お金は大丈夫ですか</summary><div class="a"><p>発起人は当面無報酬です。初期メンバーの報酬は、役割に応じて見積もって記録し、利益が出たら後払いでお返しします。出資（株）は受けません。大口の支援の形と条件は、専門家に確認して決めます。収入・支出・報酬の決め方は公開します。</p><div class="cm" data-c="よくある質問 Q5 お金は大丈夫ですか"></div></div></details>
-<details class="faq"><summary><span class="q">Q6</span>自分にとって何が得ですか</summary><div class="a"><p>つながり、学び、後払いの報酬、名誉があります。それに加えて、協力すること自体が、志ゲームのプレイになります。創設期から関わる人は「ゲームマスター」です。</p><div class="cm" data-c="よくある質問 Q6 自分にとって何が得ですか"></div></div></details>
-<details class="faq"><summary><span class="q">Q7</span>意見は言えますか</summary><div class="a"><p>言えます。当面の最終決裁は発起人ですが、良い提案は歓迎します。このページの各項目にある「コメントする」からも送れます。</p><div class="cm" data-c="よくある質問 Q7 意見は言えますか"></div></div></details>
+<details class="faq"><summary><span class="q">Q3</span>誰がやっているのですか</summary><div class="a"><p>発起人は堀 勝哉です。次の方々が関わっています。<br>・小沢隆先生（総合格闘技空手禅道会代表）<br>・出口光さん（志教育プロジェクト理事長。顧問として人つなぎと普及）<br>・レノン・リーさん（志教育プロジェクト理事）</p><div class="cm" data-c="よくある質問 Q3 誰がやっているのですか"></div></div></details>
+<details class="faq"><summary><span class="q">Q4</span>自分にとって何が得ですか</summary><div class="a"><p>このプロジェクトに関わることで、人生の楽しみや充実感を得られそうだと思ったら、ご協力ください。<br>協力していただく活動自体が、志ゲームのプレイになります。創設期から協力してくれる方は「ゲームマスター」です。<br>ほかに、同じく共感した同志とのつながり、学び、未来への希望、貢献度に応じた報酬（継続報酬を含む）などが得られます。</p><div class="cm" data-c="よくある質問 Q4 自分にとって何が得ですか"></div></div></details>
+<details class="faq"><summary><span class="q">Q5</span>意見・提案は反映されますか</summary><div class="a"><p>参加者協力型のゲームなので、ご提案は大歓迎です。このページの各項目にある「コメントする」からも送れます。<br>当面の最終決裁は発起人ですが、希望される方には、貢献度に応じた議決権など、フェアな仕組みを整備していきます。</p><div class="cm" data-c="よくある質問 Q5 意見・提案は反映されますか"></div></div></details>
 
 <h2 id="who"><span class="no">09</span>発起人について</h2>
 <p class="sub">発起人は、表に立つ人ではなく、仕組みを作る人です。</p>
 <div class="who">
-  <div class="card"><h3>堀 勝哉</h3><ul class="plain"><li>子供の頃から剣道。30代後半に志体術と出会い、自分の志を立て、伝える側として活動してきました。</li><li>禅道会オンライン道場を立ち上げ、自分も試合に出ています。</li><li>世界の武道人口は数億人といわれます。この土台を、志を届ける道にします。</li></ul></div>
-  <div class="card"><h3>この志に至った出来事</h3><ul class="plain"><li>戦時下のウクライナで、たくさんの子供達が空手着を着て稽古する姿を見たこと</li><li>10代の頃、ゲームで目覚めたワンネス意識</li><li>すでに動いている人たちに出会い、観客席から降りたこと</li></ul></div>
+  <div class="card"><h3>堀 勝哉</h3><ul class="plain"><li><b>原点は、漫画とゲームと武道：</b>子供の頃は漫画とゲームが大好きで、道徳の多くを少年漫画から学びました。剣道を続け、武道が自分の軸になりました。</li><li><b>ワンネスの感覚：</b>10代の頃に遊んだゲーム「ファイナルファンタジーVII」で、「すべてはつながっている」という感覚が腑に落ち、自分の根っこになりました。</li><li><b>志との出会い：</b>30代後半、もう一度武道に関わりたいと思って出会ったのが、志体術です。先生は志教育プロジェクトの理事でもあり、そこで自分の志を立て、人に伝える側として活動してきました。</li><li><b>もったいない、と感じたこと：</b>志は、立ててからが本番です。けれども、立てた所で終わり、日常に戻っていく人が多くいました。それが、「立てた後の場」である志ゲームの出発点です。</li><li><b>いまの活動：</b>総合格闘技空手 禅道会の創始者である小沢隆先生のもとで、禅道会オンライン道場を立ち上げ、自分も試合に出ています。</li><li><b>なぜ武道か：</b>世界の武道人口は数億人といわれます。志は「士（さむらい）の心」と書き、武の精神と重なります。世界に広がったこの土台を、志を届ける道にします。</li></ul></div>
+  <div class="card"><h3>この志に至った出来事</h3><ul class="plain"><li>戦時下のウクライナで、たくさんの子供達が空手着を着て稽古する姿を見たこと</li><li>10代の頃、ゲームで目覚めたワンネス意識</li><li>すでに動いている人たちに出会い、観客席から降りたこと</li></ul><p>子供の頃にハマったゲームの面白さは、「人生と世界をゲームにする」という志ゲームの発想に、そのまま活きています。</p></div>
 </div>
 <div class="callout gold">「人類の意識レベルの神化に貢献し、地球を愛と調和の星にすること」が、私の志です。</div>
 <p><b>10年後に見たい光景：</b>志を立てた世界各国の若者が、自分たちで集まり、明るい未来へのプロジェクトを進めている。発起人は、その中心にいません。</p>
 <div class="cm" data-c="09 発起人について"></div>
 
 <h2 id="next"><span class="no">10</span>最初の一歩</h2>
-<p class="sub">お願いは3つです。できるものを1つだけでもかまいません。義務はなく、いつでもやめられます。</p>
+<p class="sub">お願いは3つです。できるものを1つだけでもかまいません。</p>
 <div class="steps">
   <div class="key"><small>STEP 1</small><b>セミナーを受ける</b><span>まず、ご自身で体験してください。感想が、いちばんの力になります。</span></div>
   <div class="key"><small>STEP 2</small><b>受ける人を探す</b><span>身近な、将来を考え始めた若者や、その保護者に声をかけてください。</span></div>
   <div class="key"><small>STEP 3</small><b>協力者を探す</b><span>「この人なら」という方を、ご紹介ください。</span></div>
+</div>
+<div class="card" id="committee">
+  <h3>立ち上げ委員会をつくります</h3>
+  <p>創設期から一緒に形にしていく方々で、「立ち上げ委員会」をつくります。上の「関わり方」から関われる所を選び、できる範囲で動いていただく場です。下の賛同登録で「立ち上げ委員会に関心がある」に印を付けてください。</p>
+</div>
+<div class="card reg" id="register">
+  <h3>賛同の登録</h3>
+  <p>賛同していただける方は、ご登録ください。<b>参加者IDとナンバーを発行</b>し、今後の情報を共有します。</p>
+  <div class="reg-f">
+    <label>お名前<input id="rg-name" type="text" autocomplete="name"></label>
+    <label>メールアドレス<input id="rg-mail" type="email" autocomplete="email" inputmode="email"></label>
+    <label>年代<select id="rg-age"><option value="">選んでください</option><option>17歳以下</option><option>18〜24歳</option><option>25〜39歳</option><option>40〜59歳</option><option>60歳以上</option></select></label>
+    <label>参加の形<select id="rg-role"><option value="">選んでください</option><option>プレイヤー</option><option>サポーター</option><option>両方</option><option>まだ決めていない</option></select></label>
+    <label class="chk"><input id="rg-com" type="checkbox">立ち上げ委員会に関心がある</label>
+    <label class="wide">ひとこと（任意）<textarea id="rg-note" placeholder="関われそうなこと、ご紹介いただける方など"></textarea></label>
+  </div>
+  <p class="note">17歳以下の方は、保護者の方の同意を得てからご登録ください。いただいた情報は、このプロジェクトのご連絡だけに使います。</p>
+  <p style="margin-bottom:0"><button class="btn" id="rg-send" type="button">登録する</button> <span class="note" id="rg-msg"></span></p>
 </div>
 <div class="card">
   <h3>このページ全体へのご感想</h3>
@@ -483,6 +533,7 @@ var CFG = {
   to: "kokorozashi.w@gmail.com",
   endpoint: "",
   fields: { item: "", name: "", text: "" },
+  regEndpoint: "",
   page: "志プロジェクト ご案内 2026-11-22版"
 };
 (function () {
@@ -563,6 +614,22 @@ var CFG = {
     if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(done, function () {});
     else { var r = document.createRange(); r.selectNodeContents(document.getElementById("dp")); var s = getSelection(); s.removeAllRanges(); s.addRange(r); try { document.execCommand("copy"); done(); } catch (e) {} }
   });
+  // 賛同の登録。regEndpoint が空の間は、登録の文をメールで送る形になる。
+  var rgBtn = document.getElementById("rg-send");
+  if (rgBtn) {
+    rgBtn.textContent = CFG.regEndpoint ? "登録する" : "登録内容をメールで送る";
+    rgBtn.addEventListener("click", function () {
+      function v(id) { return (document.getElementById(id).value || "").trim(); }
+      var msg = document.getElementById("rg-msg");
+      if (!v("rg-name") || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v("rg-mail"))) { msg.textContent = "お名前とメールアドレスを入れてください。"; return; }
+      msg.textContent = "";
+      var text = ["【志プロジェクト】賛同の登録", "お名前：" + v("rg-name"), "メール：" + v("rg-mail"), "年代：" + (v("rg-age") || "（未選択）"),
+        "参加の形：" + (v("rg-role") || "（未選択）"), "立ち上げ委員会：" + (document.getElementById("rg-com").checked ? "関心がある" : "―"),
+        "ひとこと：" + (v("rg-note") || "―")].join("\n");
+      show("賛同の登録を送る", "「メールで送る」を押すと、メールの画面にこの文が入ります。そのまま送信してください。届きましたら、参加者IDとナンバーをメールでお知らせします。メールが開かないときは「文を写す」で写して、" + CFG.to + " に送ってください。", text, true);
+      document.getElementById("dmail").href = "mailto:" + CFG.to + "?subject=" + encodeURIComponent("【志プロジェクト】賛同の登録") + "&body=" + encodeURIComponent(text);
+    });
+  }
   document.getElementById("send").addEventListener("click", function () {
     var keys = list(); if (!keys.length) return;
     var text = compose();
