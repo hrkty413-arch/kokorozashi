@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="ja">
+<meta charset="utf-8">
+<title>志プロジェクト（仮称）ご案内｜志ゲームに参加しませんか</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<style>
+:root{
+  --ground:#f3f2ed; --panel:#fff; --panel-2:#ebeae3; --sunk:#e3e2da;
+  --ink:#171a26; --ink-soft:#474c5e; --ink-faint:#7c8192;
+  --line:#d6d5cc; --line-soft:#e5e4dc;
+  --accent:#243a7a; --accent-bg:#e4e9f6;
+  --gold:#a8791a; --gold-bg:#faf1da;
+  --ok:#2b7a4b; --ok-bg:#e4f2e8; --yet:#b4491a; --yet-bg:#fcebe1;
+  --hold:#86691c; --hold-bg:#faf2d9;
+  --shadow:0 1px 2px rgba(20,22,40,.06), 0 8px 24px -12px rgba(20,22,40,.18);
+  --sans:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Yu Gothic UI","Noto Sans JP","Segoe UI",sans-serif;
+  --serif:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;
+}
+@media (prefers-color-scheme:dark){:root{
+  --ground:#0f111a; --panel:#171a26; --panel-2:#1e2231; --sunk:#0b0d14;
+  --ink:#e8eaf2; --ink-soft:#a7acbd; --ink-faint:#737889;
+  --line:#2a2f42; --line-soft:#212536;
+  --accent:#8ea6ee; --accent-bg:#1a2242;
+  --gold:#e0b659; --gold-bg:#2b2410;
+  --ok:#5fcf8a; --ok-bg:#12261b; --yet:#ff9b6a; --yet-bg:#2e1a10;
+  --hold:#e0c060; --hold-bg:#2a2410;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 12px 32px -14px rgba(0,0,0,.6);
+}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);line-height:1.8;font-size:16px}
+.wrap{max-width:940px;margin:0 auto;padding:0 1.2rem 7rem}
+a{color:var(--accent)}
+header.top{padding:3.2rem 0 1rem}
+.eyebrow{font-size:.8rem;letter-spacing:.08em;color:var(--ink-faint);font-weight:600}
+h1{font-family:var(--serif);font-size:clamp(1.9rem,6vw,3rem);line-height:1.35;margin:.6rem 0 .8rem;letter-spacing:.02em}
+h1 em{font-style:normal;color:var(--gold)}
+h1 .nb{display:inline-block}
+.lead{font-size:1.06rem;color:var(--ink-soft);max-width:44em}
+.howto{display:flex;gap:.6rem;align-items:flex-start;background:var(--gold-bg);border:1px solid color-mix(in srgb,var(--gold) 30%,transparent);border-radius:12px;padding:.8rem 1rem;margin:1.2rem 0;font-size:.94rem}
+.howto b{color:var(--gold)}
+nav.toc{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--ground) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line-soft);margin:0 -1.2rem;padding:.5rem 1.2rem;display:flex;gap:.4rem;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+nav.toc::-webkit-scrollbar{display:none}
+nav.toc a{flex:none;text-decoration:none;font-size:.84rem;font-weight:600;color:var(--ink-soft);padding:.3rem .75rem;border:1px solid var(--line);border-radius:99px;background:var(--panel);white-space:nowrap}
+h2{font-size:1.45rem;line-height:1.5;margin:3.6rem 0 .4rem;padding-top:.6rem;scroll-margin-top:3.4rem}
+h2 .no{display:block;font-size:.78rem;letter-spacing:.14em;color:var(--gold);font-weight:700}
+h2+p.sub{color:var(--ink-soft);margin:.2rem 0 1rem}
+h3{font-size:1.08rem;margin:1.6rem 0 .4rem}
+.keys{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:.9rem;margin:1.4rem 0}
+.key{background:var(--panel);border:1px solid var(--line-soft);border-radius:14px;padding:1rem 1.1rem;box-shadow:var(--shadow)}
+.key small{display:block;font-size:.74rem;letter-spacing:.1em;color:var(--gold);font-weight:700}
+.key b{display:block;font-size:1.04rem;margin:.15rem 0 .3rem;line-height:1.5}
+.key span{color:var(--ink-soft);font-size:.9rem;line-height:1.7;display:block}
+.card{background:var(--panel);border:1px solid var(--line-soft);border-radius:14px;padding:1.1rem 1.3rem;box-shadow:var(--shadow);margin:1rem 0}
+.card>h3:first-child{margin-top:0}
+.callout{border-left:4px solid var(--accent);background:var(--accent-bg);padding:.8rem 1rem;border-radius:0 10px 10px 0;margin:1rem 0}
+.callout.gold{border-color:var(--gold);background:var(--gold-bg)}
+.note{font-size:.84rem;color:var(--ink-faint)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:.9rem;margin:1rem 0}
+.cols .card{margin:0}
+.big{font-family:var(--serif);font-size:1.25rem;line-height:1.7;margin:.4rem 0}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+.vs .card h3 small{font-weight:400;color:var(--ink-faint);font-size:.82rem;margin-left:.4rem}
+@media (max-width:560px){.vs{grid-template-columns:1fr}}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:1rem 0;border:1px solid var(--line-soft);border-radius:12px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;font-size:.9rem}
+th,td{padding:.55rem .7rem;border-bottom:1px solid var(--line-soft);text-align:left;vertical-align:top}
+th{background:var(--panel-2);font-weight:600;white-space:nowrap}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--ink-faint)}
+tr:last-child td{border-bottom:0}
+td a{font-weight:600;text-decoration:none;white-space:nowrap}
+.v{display:inline-block;font-size:.76rem;font-weight:700;padding:.05rem .55rem;border-radius:99px;white-space:nowrap}
+.v.ok{background:var(--ok-bg);color:var(--ok)} .v.yet{background:var(--yet-bg);color:var(--yet)} .v.hold{background:var(--hold-bg);color:var(--hold)}
+.bars{display:grid;grid-template-columns:minmax(6.5rem,auto) 1fr auto;gap:.4rem .8rem;align-items:center;font-size:.92rem}
+.bars .track{height:.85rem;background:var(--sunk);border-radius:99px;overflow:hidden}
+.bars .fill{display:block;height:100%;background:var(--ink-faint);border-radius:99px}
+.bars .fill.hi{background:var(--accent)}
+.bars .n{font-variant-numeric:tabular-nums;font-weight:700}
+.ba{display:grid;gap:.9rem}
+.ba-r{display:grid;grid-template-columns:minmax(8.5rem,1.1fr) 3fr;gap:.3rem 1rem;align-items:center;font-size:.92rem}
+.ba-t{display:grid;gap:3px}
+.ba-t span{display:block;height:1.25rem;border-radius:4px;background:var(--sunk);position:relative;overflow:hidden}
+.ba-t i{position:absolute;inset:0 auto 0 0;border-radius:4px;background:var(--ink-faint);font-style:normal;color:#fff;font-size:.74rem;font-weight:700;padding-left:.4rem;line-height:1.25rem;white-space:nowrap}
+.ba-t i.af{background:var(--accent)}
+@media (prefers-color-scheme:dark){.ba-t i{color:#10131c}}
+@media (max-width:560px){.ba-r{grid-template-columns:1fr}}
+.flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(138px,1fr));gap:.6rem;margin:1.2rem 0;counter-reset:f}
+.flow div{background:var(--panel);border:1px solid var(--line-soft);border-radius:12px;padding:.8rem .9rem;box-shadow:var(--shadow);position:relative;counter-increment:f}
+.flow div::before{content:counter(f);display:inline-grid;place-items:center;width:1.5rem;height:1.5rem;border-radius:50%;background:var(--accent);color:var(--panel);font-size:.8rem;font-weight:700;margin-bottom:.3rem}
+.flow b{display:block;line-height:1.5}
+.flow span{font-size:.84rem;color:var(--ink-soft);line-height:1.6;display:block}
+.flow div.goal::before{background:var(--gold)}
+.tab-r{position:absolute;opacity:0;pointer-events:none}
+.tabs{display:flex;flex-wrap:wrap;gap:.4rem;margin:1.2rem 0 .4rem}
+.tabs label{cursor:pointer;padding:.45rem .95rem;border:1px solid var(--line);border-radius:99px;background:var(--panel);font-weight:600;font-size:.92rem}
+.panel{display:none}
+#t1:checked~.tabs label[for=t1],#t2:checked~.tabs label[for=t2],#t3:checked~.tabs label[for=t3]{background:var(--accent);border-color:var(--accent);color:var(--panel)}
+#t1:checked~#p1,#t2:checked~#p2,#t3:checked~#p3{display:block}
+.tab-r:focus-visible~.tabs label{outline:2px solid var(--accent);outline-offset:2px}
+.tt{display:grid;gap:.1rem}
+.tt-r{display:grid;grid-template-columns:1.6rem 1fr auto;gap:.1rem .7rem;align-items:start;padding:.55rem 0;border-bottom:1px solid var(--line-soft)}
+.tt-r:last-child{border-bottom:0}
+.tt-n{color:var(--ink-faint);font-variant-numeric:tabular-nums;font-weight:700}
+.tt-b b{display:block}.tt-b span{color:var(--ink-soft);font-size:.9rem;display:block;line-height:1.65}
+.tt-m{font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tt-bar{grid-column:2/-1;height:.35rem;background:var(--sunk);border-radius:99px;overflow:hidden;display:block}
+.tt-bar i{display:block;height:100%;background:var(--accent);border-radius:99px}
+ul.plain{padding-left:1.2rem;margin:.4rem 0}ul.plain li{margin:.25rem 0}
+ol.rules{list-style:none;padding:0;margin:1rem 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:.7rem;counter-reset:r}
+ol.rules li{counter-increment:r;background:var(--panel);border:1px solid var(--line-soft);border-radius:12px;padding:.8rem 1rem .8rem 3rem;position:relative;box-shadow:var(--shadow)}
+ol.rules li::before{content:counter(r);position:absolute;left:1rem;top:.75rem;font-family:var(--serif);font-size:1.4rem;color:var(--gold);font-weight:700;line-height:1.3}
+ol.rules b{display:block}ol.rules span{font-size:.88rem;color:var(--ink-soft)}
+.tl{list-style:none;padding:0;margin:1.2rem 0;border-left:2px solid var(--line);margin-left:.5rem}
+.tl li{position:relative;padding:.1rem 0 .9rem 1.2rem}
+.tl li::before{content:"";position:absolute;left:-.45rem;top:.55rem;width:.75rem;height:.75rem;border-radius:50%;background:var(--panel);border:2px solid var(--accent)}
+.tl li.now::before{background:var(--gold);border-color:var(--gold)}
+.tl time{display:block;font-size:.8rem;font-weight:700;color:var(--ink-faint)}
+.tl li.now time{color:var(--gold)}
+h3.grp{display:flex;align-items:baseline;gap:.7rem;margin:2.2rem 0 .6rem;padding-bottom:.3rem;border-bottom:2px solid var(--line)}
+h3.grp span{font-size:1.15rem}h3.grp small{font-weight:400;color:var(--ink-faint);font-size:.84rem}
+.its{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:.9rem}
+.it{background:var(--panel);border:1px solid var(--line-soft);border-radius:14px;padding:1rem 1.15rem;box-shadow:var(--shadow);scroll-margin-top:4rem;display:flex;flex-direction:column}
+.it header{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap}
+.it-n{font-family:var(--serif);font-size:1.3rem;color:var(--gold);font-weight:700}
+.it h3{margin:0;font-size:1.08rem;flex:1}
+.it-w{color:var(--ink-soft);font-size:.92rem;margin:.4rem 0 .5rem}
+.it dl{margin:0;font-size:.92rem}
+.it dt{font-size:.76rem;font-weight:700;color:var(--ink-faint);letter-spacing:.06em;margin-top:.5rem}
+.it dd{margin:0}
+.it-r{margin-top:.8rem;padding-top:.7rem;border-top:1px dashed var(--line);flex:1}
+.it-r>b{font-size:.76rem;color:var(--accent);letter-spacing:.06em}
+.chips{list-style:none;padding:0;margin:.4rem 0 0;display:flex;flex-wrap:wrap;gap:.35rem}
+.chips li{font-size:.82rem;background:var(--accent-bg);color:var(--ink);padding:.12rem .6rem;border-radius:99px;line-height:1.6}
+details.faq{background:var(--panel);border:1px solid var(--line-soft);border-radius:12px;margin:.6rem 0;box-shadow:var(--shadow)}
+details.faq summary{cursor:pointer;padding:.85rem 1rem;font-weight:700;list-style:none;display:flex;gap:.7rem;align-items:baseline}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary::after{content:"＋";margin-left:auto;color:var(--ink-faint);font-weight:400}
+details.faq[open] summary::after{content:"－"}
+.faq .q{color:var(--gold);font-family:var(--serif);flex:none}
+.faq .a{padding:0 1rem 1rem 1rem;color:var(--ink-soft)}
+.faq .a p{margin:.2rem 0 .4rem}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.9rem;margin:1.2rem 0}
+.steps .key b{font-size:1.1rem}
+.who{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:.9rem}
+footer{margin-top:3.5rem;font-size:.84rem;color:var(--ink-faint);border-top:1px solid var(--line);padding-top:1rem}
+/* コメント */
+.cm{margin-top:.8rem}
+.cm-b{font:inherit;font-size:.84rem;font-weight:600;color:var(--accent);background:transparent;border:1px dashed color-mix(in srgb,var(--accent) 55%,transparent);border-radius:99px;padding:.25rem .85rem;cursor:pointer}
+.cm-b.has{background:var(--gold-bg);border:1px solid var(--gold);color:var(--gold)}
+.cm-f{display:none;margin-top:.5rem}
+.cm.open .cm-f{display:block}
+.cm textarea{width:100%;min-height:5.2rem;font:inherit;font-size:16px;padding:.6rem .7rem;border:1px solid var(--line);border-radius:10px;background:var(--ground);color:var(--ink);resize:vertical}
+.cm-s{font-size:.78rem;color:var(--ink-faint);margin-top:.2rem;min-height:1.2em}
+#bar{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--panel);border-top:1px solid var(--line);box-shadow:0 -8px 24px -12px rgba(20,22,40,.25);transform:translateY(110%);visibility:hidden;transition:transform .25s}
+#bar.on{transform:none;visibility:visible}
+#bar .in{max-width:940px;margin:0 auto;padding:.7rem 1.2rem;display:flex;gap:.7rem;align-items:center;flex-wrap:wrap}
+#bar .cnt{font-weight:700;flex:1;min-width:9rem}
+#bar .cnt small{display:block;font-weight:400;font-size:.78rem;color:var(--ink-faint)}
+#bar input{font:inherit;font-size:16px;padding:.45rem .7rem;border:1px solid var(--line);border-radius:10px;background:var(--ground);color:var(--ink);width:11rem;max-width:100%}
+.btn{font:inherit;font-weight:700;border:0;border-radius:10px;padding:.55rem 1.1rem;cursor:pointer;background:var(--accent);color:var(--panel)}
+.btn.sub{background:var(--panel-2);color:var(--ink)}
+#sent{display:none;position:fixed;inset:0;z-index:30;background:rgba(10,12,20,.55);place-items:center;padding:1.2rem}
+#sent.on{display:grid}
+#sent .box{background:var(--panel);border-radius:16px;padding:1.3rem 1.4rem;max-width:34rem;width:100%;box-shadow:var(--shadow)}
+#sent pre{white-space:pre-wrap;font:inherit;font-size:.88rem;background:var(--ground);border:1px solid var(--line-soft);border-radius:10px;padding:.7rem;max-height:40vh;overflow:auto}
+@media print{nav.toc,#bar,.cm{display:none}details.faq>.a{display:block}}
+
+</style>
+<div class="wrap">
+<header class="top">
+  <div class="eyebrow">志プロジェクト（仮称）· ご案内 · 2026年11月22日時点 · 構想の段階です</div>
+  <h1><span class="nb">みんなで、</span><span class="nb"><em>「志ゲーム」</em>に</span><span class="nb">参加しませんか。</span></h1>
+  <p class="lead">志を立てて、仲間と一緒に世界を良くしていくゲームです。このページは、プロジェクトの全体と、いまどこまで進んでいるか、どこで力を借りたいかを1枚にまとめたものです。読むのに10分ほどです。</p>
+  <div class="howto"><span><b>ご意見をください。</b>各項目の下にある「この項目にコメントする」を押すと、その場で書けます。書き終えたら、画面の下に出る「まとめて送る」で、発起人の堀に届きます。ほかの方には見えません。</span></div>
+</header>
+
+<nav class="toc" aria-label="目次">
+  <a href="#about">1 何をするのか</a><a href="#why">2 なぜ今</a><a href="#path">3 参加の流れ</a><a href="#game">4 志ゲーム</a><a href="#rules">5 決めていること</a><a href="#now">6 現在地</a><a href="#join">7 関わり方</a><a href="#faq">8 よくある質問</a><a href="#who">9 発起人</a><a href="#next">10 最初の一歩</a>
+</nav>
+
+<div class="keys">
+  <div class="key"><small>何をするのか</small><b>志を立てる場と、立てた後の場をつくります</b><span>2回のセミナーで自分の志を言葉にし、そのあとは「志ゲーム」で仲間と学び、実践します。</span></div>
+  <div class="key"><small>なぜ今か</small><b>日本の若者の76.4%が、将来を心配しています</b><span>AIの時代に「何のために生きるか」が、全員の問いになりました。人生に一本の軸を通します。</span></div>
+  <div class="key"><small>いまあるもの</small><b>企画書・書籍の素材・セミナーの骨格</b><span>前身の志教育プロジェクトには、学校で志を立てる場を回してきた実績があります。</span></div>
+  <div class="key"><small>お願いしたいこと</small><b>まず、セミナーを受けてみてください</b><span>そのうえで、15の項目から「ここなら関われる」を選んでいただければ十分です。<a href="#join">関わり方を見る</a></span></div>
+</div>
+
+<h2 id="about"><span class="no">01</span>このプロジェクトは、何をするのか</h2>
+<p class="sub">目的は、より良い人類の進化発展に貢献することです。「志」は、そのための手段です。</p>
+<div class="card">
+  <p class="big">地球に生まれた、この一度きりの人生を、どう捉えるか。<br>私は、全員参加型の「人類発展ゲーム」だと考えています。</p>
+  <p>それを、本当のゲームのように形にしたのが「志ゲーム」です。賛同する人を集め、みんなで遊びたい。それが、このプロジェクトです。協力型のゲームなので、プレイヤーが増えるほど、発展が進みます。</p>
+</div>
+<h3>志とは</h3>
+<div class="callout gold"><b>志とは、命を世の中への貢献に使うと決めて生きること。</b><br>内から湧く衝動と、世の中が求めることが重なる所にあります。最初は仮決めでかまいません。</div>
+<div class="vs">
+  <div class="card"><h3>夢<small>内向き</small></h3><p>自分がこうなりたい、こうしたい。</p></div>
+  <div class="card"><h3>志<small>外向き</small></h3><p>世の中のために、命をどう使うか。一生ものです。職業や手段は、志を果たすために更新していきます。</p></div>
+</div>
+<p>海外で広まった IKIGAI（生きがい）は、好きなこと・得意なこと・必要とされること・収入になることが重なる所、という職業や役割の話です。志は、命の使い方、生き様の話です。志を軸に生きる生き方には、IKIGAI が含まれています。英語の Passion・Dream・Mission では訳しきれないので、KOKOROZASHI のまま世界へ広めます。</p>
+<h3>なぜ、ゲームにするのか</h3>
+<ul class="plain">
+  <li>楽しくなければ続きません。人がスマホゲームに時間とお金を使うのは、ハマる設計（ゲーミフィケーション）があるからです。その設計を、人生と世界のために使います。</li>
+  <li>アプリで、人生の充実（経験値を貯めてレベルアップ）と、世界の問題解決（クエストクリア）をつなげます。</li>
+  <li>説教くさい、「意識高い系」と見られないためにも、ゲームにします。通じた若者に、主体的に広めてもらいます。</li>
+</ul>
+<div class="cm" data-c="01 このプロジェクトは何をするのか"></div>
+
+<h2 id="why"><span class="no">02</span>なぜ今、なぜ若者に、なぜ日本から</h2>
+<p class="sub">混迷の時代に、希望のストーリーが必要です。</p>
+<div class="card">
+  <h3>自分の将来を「心配」と答えた若者の割合</h3>
+  <div class="bars">
+    <span>日本</span><span class="track"><span class="fill hi" style="width:76.4%"></span></span><span class="n">76.4%</span>
+    <span>アメリカ</span><span class="track"><span class="fill" style="width:67.4%"></span></span><span class="n">67.4%</span>
+    <span>フランス</span><span class="track"><span class="fill" style="width:66.8%"></span></span><span class="n">66.8%</span>
+    <span>ドイツ</span><span class="track"><span class="fill" style="width:64.7%"></span></span><span class="n">64.7%</span>
+    <span>スウェーデン</span><span class="track"><span class="fill" style="width:58.9%"></span></span><span class="n">58.9%</span>
+  </div>
+  <p class="note">「自分の将来のこと」について「心配」「どちらかといえば心配」と答えた割合。対象は各国の満13〜29歳、2023年11〜12月に調査。出典：こども家庭庁「我が国と諸外国のこどもと若者の意識に関する調査（令和5年度）」</p>
+</div>
+<div class="cols">
+  <div class="card"><h3>なぜ今</h3><p>AIに業務は任せられますが、AIが出せるのは最適解までです。より良い世界を思い描き、AIを使いこなし、同じ志の仲間と連帯して創造する。それが、これからの世代の本筋です。</p></div>
+  <div class="card"><h3>なぜ若者に</h3><p>価値観は若いうちに形作られます。若者が志を立てると、本人に軸が通り、周りに良い影響が広がり、協力して社会の問題を動かす力になります。</p></div>
+  <div class="card"><h3>なぜ日本から</h3><p>志は、サムライスピリットそのものです。日本の精神性として世界から敬意を集めていますが、まだ生き様としては届いていません。そこをライフスタイルに落とし込み、世界へ届けます。</p></div>
+</div>
+<div class="card">
+  <h3>土台：志を立てた前後で、アンケートが上がりました</h3>
+  <p>前身にあたる一般社団法人 志教育プロジェクトは、2012年に宮城県の牡鹿中学校で初めて実施し、佐賀県内では783名に実施しています。下は、横浜市立上永谷中学校（2017年、全校）の実施前後です。</p>
+  <div class="ba">
+    <div class="ba-r"><span>志・目的が明確</span><span class="ba-t"><span><i style="width:17%">17%</i></span><span><i class="af" style="width:58%">58%</i></span></span></div>
+    <div class="ba-r"><span>自己肯定感<br><small class="note">自分はここにいていいんだ</small></span><span class="ba-t"><span><i style="width:23%">23%</i></span><span><i class="af" style="width:58%">58%</i></span></span></div>
+    <div class="ba-r"><span>自己有用感<br><small class="note">世の中の為に役立っていける</small></span><span class="ba-t"><span><i style="width:16%">16%</i></span><span><i class="af" style="width:49%">49%</i></span></span></div>
+  </div>
+  <p class="note">上の棒が実施前、下の棒が実施後。5段階のうち上位2段階の合計。出典：志教育プロジェクト「教育現場での志共育の進め方」36ページ。</p>
+  <p>このプロジェクトは、同じ思想を持つ別動隊です。志を立てる所までで終わらせず、<b>立てた後の活動を支える仕組み</b>（習慣・仲間・アプリ）と、若者が主役になって日本から世界へ広げていく体制を足します。</p>
+</div>
+<div class="cm" data-c="02 なぜ今・なぜ若者に・なぜ日本から"></div>
+
+<h2 id="path"><span class="no">03</span>参加する人は、どう進むのか</h2>
+<p class="sub">セミナーは、決意させる場ではなく、腹落ちさせる場です。信じさせません。確かめるのは本人です。</p>
+<div class="flow">
+  <div><b>知る</b><span>本、紹介、道場や塾、発信から</span></div>
+  <div><b>1回目のセミナー</b><span>気づきと体験（2時間）</span></div>
+  <div><b>毎日の課題</b><span>連続14日（仮）の投稿と自己分析</span></div>
+  <div><b>2回目のセミナー</b><span>志を言葉にして、宣言する</span></div>
+  <div class="goal"><b>志ゲーム</b><span>その場で登録。最初の1か月は無料</span></div>
+</div>
+<div class="card" style="position:relative">
+  <input class="tab-r" type="radio" name="sem" id="t1" checked><input class="tab-r" type="radio" name="sem" id="t2"><input class="tab-r" type="radio" name="sem" id="t3">
+  <div class="tabs"><label for="t1">1回目｜気づきと体験</label><label for="t2">間の課題</label><label for="t3">2回目｜志を言葉にする</label></div>
+  <div class="panel" id="p1">
+<div class="tt">
+<div class="tt-r"><span class="tt-n">1</span><span class="tt-b"><b>つかみ</b><span>「生まれてきた意味、考えたことある？」という問いかけ</span></span><span class="tt-m">10分</span><span class="tt-bar"><i style="width:33%"></i></span></div>
+<div class="tt-r"><span class="tt-n">2</span><span class="tt-b"><b>死生観</b><span>人生は一度きりで、いつ終わるか分からない。死ぬ前の後悔から逆算します</span></span><span class="tt-m">15分</span><span class="tt-bar"><i style="width:50%"></i></span></div>
+<div class="tt-r"><span class="tt-n">3</span><span class="tt-b"><b>意味は自分で決められる</b><span>答えは誰も教えてくれない。だから自分で決めていい</span></span><span class="tt-m">15分</span><span class="tt-bar"><i style="width:50%"></i></span></div>
+<div class="tt-r"><span class="tt-n">4</span><span class="tt-b"><b>ワンネス</b><span>話、体感ワーク、映像の3つで「自分は全体の一部」という見立てを体験します</span></span><span class="tt-m">30分</span><span class="tt-bar"><i style="width:100%"></i></span></div>
+<div class="tt-r"><span class="tt-n">5</span><span class="tt-b"><b>志へのつなぎ</b><span>次にどこに生まれるか分からない（無知のヴェール）。だから大きな目的を選びます</span></span><span class="tt-m">20分</span><span class="tt-bar"><i style="width:67%"></i></span></div>
+<div class="tt-r"><span class="tt-n">6</span><span class="tt-b"><b>志とは何か</b><span>夢との違い。「志を持つと、人生は最高のゲームになる」</span></span><span class="tt-m">15分</span><span class="tt-bar"><i style="width:50%"></i></span></div>
+<div class="tt-r"><span class="tt-n">7</span><span class="tt-b"><b>課題の説明と締め</b><span>2回目までに取り組む課題を説明します</span></span><span class="tt-m">15分</span><span class="tt-bar"><i style="width:50%"></i></span></div>
+</div><p class="note">合計 120分（2時間）。時間配分は仮です。</p>
+  </div>
+  <div class="panel" id="p2">
+    <ul class="plain">
+      <li>アファメーション（自分への宣言の言葉）などを毎日行い、やったことを毎日投稿します。連続14日（仮）でクリアすると、2回目に進めます。</li>
+      <li>自己分析は、セミナーの中ではなく、この課題で行います。じっくり考える時間と、周りの人に聞く日数が要るためです。セミナーの時間は、人と話して深めるほうに使います。</li>
+      <li>2回目は日程を固定しません。課題をクリアした人が最低開催人数に達したら開きます。</li>
+    </ul>
+    <p class="note">まだ決めていないこと：毎日投稿する中身、連続日数（14日は仮）、途切れたときの扱い、最低開催人数、アプリ公開前の投稿先。</p>
+  </div>
+  <div class="panel" id="p3">
+<div class="tt">
+<div class="tt-r"><span class="tt-n">1</span><span class="tt-b"><b>振り返り</b><span>課題をやってみてどうだったか、一言ずつ</span></span><span class="tt-m">10分</span><span class="tt-bar"><i style="width:33%"></i></span></div>
+<div class="tt-r"><span class="tt-n">2</span><span class="tt-b"><b>課題の共有</b><span>少人数で、自己分析や、周りの人に聞いた結果を話します</span></span><span class="tt-m">15分</span><span class="tt-bar"><i style="width:50%"></i></span></div>
+<div class="tt-r"><span class="tt-n">3</span><span class="tt-b"><b>棚卸しのまとめ</b><span>ワクワク、得意、気になる問題、辛かった経験から、自分のテーマの手がかりを見つけます</span></span><span class="tt-m">20分</span><span class="tt-bar"><i style="width:67%"></i></span></div>
+<div class="tt-r"><span class="tt-n">4</span><span class="tt-b"><b>志を言葉にする</b><span>仮決めでいいと伝えたうえで、一文にします。夢がある人は、その夢でどう貢献するかを足します</span></span><span class="tt-m">25分</span><span class="tt-bar"><i style="width:83%"></i></span></div>
+<div class="tt-r"><span class="tt-n">5</span><span class="tt-b"><b>志の宣言</b><span>少人数か全体で、声に出して伝えます</span></span><span class="tt-m">20分</span><span class="tt-bar"><i style="width:67%"></i></span></div>
+<div class="tt-r"><span class="tt-n">6</span><span class="tt-b"><b>志ゲームへの招待</b><span>志ゲームを説明し、その場で登録します。最初の1か月は無料です</span></span><span class="tt-m">30分</span><span class="tt-bar"><i style="width:100%"></i></span></div>
+</div><p class="note">合計 120分（2時間）。時間配分は仮です。</p>
+    <p>修了した方には、後日、神社で志を奉納するツアーをご案内します。</p>
+  </div>
+</div>
+<p>若者向けと大人向けは分けます。大人向けには、若者の志を応援する側の関わり方（応援の作法）を用意します。料金は検討中です。</p>
+<div class="cm" data-c="03 参加の流れとセミナー"></div>
+
+<h2 id="game"><span class="no">04</span>志ゲームで、できること</h2>
+<p class="sub">志を立てた人が、仲間と学び、実践し、世界を良くするクエストに挑む場です。すべて会員サイト（アプリ）で管理します。</p>
+<div class="keys">
+  <div class="key"><b>習慣化</b><span>身につけたいことを選んでセットし、毎日の取り組みを記録します。レベルやパラメーターが上がります。</span></div>
+  <div class="key"><b>学び</b><span>学び方の学びと、内面を育てる学び、実用的なスキルの学びがあります。</span></div>
+  <div class="key"><b>仲間</b><span>個人チャット、グループチャットで、同じ志を持つ仲間とつながります。</span></div>
+  <div class="key"><b>クエスト</b><span>自治体、ボランティア団体、社会起業家などからの報酬つきの依頼に、仲間とパーティーを組んで挑みます。</span></div>
+  <div class="key"><b>自分たちのプロジェクト</b><span>参加者同士で企画を立て、プロジェクト管理の機能で進めます。</span></div>
+  <div class="key"><b>大人や企業とのつながり</b><span>サポーターの大人や企業から、支援やコンタクトがもらえます。</span></div>
+</div>
+<div class="cols">
+  <div class="card"><h3>内面を育てる</h3><ul class="plain"><li>自分を整える：セルフコントロール、感情やストレスの扱い方、呼吸と姿勢</li><li>自分を知る：脳・意識・感情・身体の仕組み</li><li>在り方：自己信頼、感謝、謙虚さ</li><li>人と関わる：コミュニケーション、社会の基礎知識</li><li>学び続ける力：学び方の学び、AIを使った知識の身につけ方</li></ul></div>
+  <div class="card"><h3>実用的なスキル</h3><ul class="plain"><li>英語などの言語</li><li>体と健康</li><li>お金の稼ぎ方</li><li>マーケティングなどのビジネス</li><li>スタートアップの立ち上げ方</li><li>海外の先進的な学び（シリコンバレーの起業家教育など）</li></ul></div>
+</div>
+<p>社会起業家など、いろんな分野で実績のある人とのコラボ講義を、次々にリリースしていきます。プレイヤー（若者）とサポーター（支える大人）は同じアプリを使い、見える画面が変わります。未成年と大人が関わるための安全ルールは、これから決めます。</p>
+<div class="cm" data-c="04 志ゲームでできること"></div>
+
+<h2 id="rules"><span class="no">05</span>先に決めていること</h2>
+<p class="sub">いちばん避けたいのは、尻すぼみよりも「変質」（政治団体化・神格化・金儲け・原理主義化）です。起きない構造を、最初から作ります。</p>
+<ol class="rules">
+  <li><b>政治的中立</b><span>すべての政治勢力から等距離</span></li>
+  <li><b>知的誠実</b><span>信じさせない。確かめさせる</span></li>
+  <li><b>収支の透明化</b><span>収入・支出・報酬の決め方を公開</span></li>
+  <li><b>原理主義の禁止</b><span>出口の自由、検証できること</span></li>
+  <li><b>運営の透明化</b><span>決裁権・変更手続きを公開</span></li>
+  <li><b>仮想敵を作らない</b><span>恐怖や敵意を燃料にしない</span></li>
+</ol>
+<div class="card">
+  <h3>お金の考え方</h3>
+  <ul class="plain">
+    <li>出資（株）は受けません。</li>
+    <li>発起人は当面無報酬です。</li>
+    <li>初期メンバーの報酬は、役割に応じて見積もって記録し、利益が出たら後払いでお返しします。</li>
+    <li>大口の支援の形と条件は、専門家に確認して決めます。</li>
+    <li>法人は、一般社団法人で立ち上げる方針です。</li>
+  </ul>
+</div>
+<div class="cm" data-c="05 先に決めていること・お金の考え方"></div>
+
+<h2 id="now"><span class="no">06</span>いま、どこまで進んでいるか</h2>
+<p class="sub">正直な現在地です。決まっている所と、これからの所を分けて書きます。</p>
+<div class="scroll"><table><tr><th class="num">No.</th><th>項目</th><th>いまの段階</th><th>これから必要なこと</th></tr><tr><td class="num">01</td><td><a href="#item-1">思想・理念</a></td><td><span class="v ok">作成中</span></td><td>執筆、共著者・賛同者のコメント集め、憲章の明文化</td></tr><tr><td class="num">02</td><td><a href="#item-2">セミナー</a></td><td><span class="v ok">骨格あり</span></td><td>細かい構成、ワーク設計、ワンネスの映像、大人向け「応援の作法」</td></tr><tr><td class="num">03</td><td><a href="#item-3">志ゲーム・アプリ</a></td><td><span class="v ok">コンセプト決定</span></td><td>仕様書、開発、中のコンテンツ（価値観・スキル・マインドセットのメニュー）</td></tr><tr><td class="num">04</td><td><a href="#item-4">広報・普及</a></td><td><span class="v hold">方針あり</span></td><td>ウェブサイト、発信計画、ファシリテーターの仕組み</td></tr><tr><td class="num">05</td><td><a href="#item-5">資金・お金</a></td><td><span class="v hold">仮決め</span></td><td>お返しの条件の具体化、収支公開の仕組み</td></tr><tr><td class="num">06</td><td><a href="#item-6">法人・法務</a></td><td><span class="v hold">方針あり</span></td><td>設立手続き、大口の資金の法的な形の専門家確認、後払い報酬の会計処理</td></tr><tr><td class="num">07</td><td><a href="#item-7">運営・組織</a></td><td><span class="v hold">方針あり</span></td><td>役割一覧、意思決定と乗っ取り防止のルール</td></tr><tr><td class="num">08</td><td><a href="#item-8">外部連携</a></td><td><span class="v hold">方針あり</span></td><td>連携先リスト、提携の形と料金</td></tr><tr><td class="num">09</td><td><a href="#item-9">ロードマップ</a></td><td><span class="v hold">想定あり</span></td><td>時期を入れた一枚のロードマップ</td></tr><tr><td class="num">10</td><td><a href="#item-10">効果測定</a></td><td><span class="v hold">基準は仮</span></td><td>参加者数、継続率、志を立てた人数などの指標</td></tr><tr><td class="num">11</td><td><a href="#item-11">ブランド・デザイン</a></td><td><span class="v hold">仮称の段階</span></td><td>名称決定、ロゴ、デザインのトーン</td></tr><tr><td class="num">12</td><td><a href="#item-12">リスク・危機対応</a></td><td><span class="v hold">方針あり</span></td><td>対応手順、責任者、未成年と大人の安全ルール</td></tr><tr><td class="num">13</td><td><a href="#item-13">個人情報・コンプライアンス</a></td><td><span class="v yet">これから</span></td><td>規約とプライバシーポリシー、保護者同意の仕組み</td></tr><tr><td class="num">14</td><td><a href="#item-14">サポート窓口</a></td><td><span class="v yet">これから</span></td><td>窓口、よくある質問、対応担当</td></tr><tr><td class="num">15</td><td><a href="#item-15">知的財産</a></td><td><span class="v yet">これから</span></td><td>権利の帰属と利用ルールの整理</td></tr></table></div>
+<h3>いまの想定スケジュール</h3>
+<ul class="tl">
+  <li class="now"><time>〜2026年12月</time>協力者集め（いまここです）</li>
+  <li><time>2027年1月</time>法人設立</li>
+  <li><time>2027年1〜3月</time>設計・準備</li>
+  <li><time>2027年4〜5月</time>プレ実践（非公開・30〜50人）</li>
+  <li><time>2027年6〜9月</time>本の仕上げ</li>
+  <li><time>2027年秋</time>リリース</li>
+</ul>
+<p class="note">時期は企画書の想定で、これから一枚のロードマップにまとめます。プレ実践の合格ラインは「日々取り組む人がいて、良いフィードバックが出ていること」です。</p>
+<div class="cm" data-c="06 現在地とスケジュール"></div>
+
+<h2 id="join"><span class="no">07</span>関わり方を選ぶ</h2>
+<p class="sub">15の項目ごとに、いまの状況と、力を借りたい役割を書きました。「ここなら関われる」「この人を紹介できる」があれば、その項目にコメントをください。関わる時間は、全員「できる範囲で」です。</p>
+<div class="callout"><b>協力すること自体が、志ゲームのプレイになります。</b>創設期から関わる方は「ゲームマスター」です。</div>
+<h3 class="grp"><span>中身をつくる</span><small>本・セミナー・アプリ・見せ方・4項目</small></h3><div class="its"><article class="it" id="item-1">
+<header><span class="it-n">01</span><h3>思想・理念</h3><span class="v ok">作成中</span></header>
+<p class="it-w">思想編（理論編）、実践編、若者向けの本、憲章</p>
+<dl><dt>いま</dt><dd>企画書と書籍素材集を作成中です。呼び方（思想編／理論編）はまだ決めていません。</dd><dt>これから必要なこと</dt><dd>執筆、共著者・賛同者のコメント集め、憲章の明文化</dd></dl>
+<div class="it-r"><b>力を借りたい役割</b><ul class="chips"><li>原稿の感想</li><li>共著・賛同コメント</li><li>編集・校正</li><li>英語版の翻訳</li><li>専門分野の監修（脳科学・心理学・歴史など）</li><li>若者目線のチェック</li><li>表紙・挿絵のデザイン</li><li>出版の実務</li><li>憲章づくりの相談役</li></ul></div>
+<div class="cm" data-c="関わり方 01 思想・理念"></div>
+</article><article class="it" id="item-2">
+<header><span class="it-n">02</span><h3>セミナー</h3><span class="v ok">骨格あり</span></header>
+<p class="it-w">2回のウェブセミナー（各90分〜2時間）。若者向けと大人向けがあります。</p>
+<dl><dt>いま</dt><dd>1回目「気づきと体験」、2回目「志を言葉にする」の骨格があります。毎日の課題の投稿を連続14日（仮）続けた人が、2回目へ進みます。自己分析も課題で行います。</dd><dt>これから必要なこと</dt><dd>細かい構成、ワーク設計、ワンネスの映像、大人向け「応援の作法」</dd></dl>
+<div class="it-r"><b>力を借りたい役割</b><ul class="chips"><li>テスト受講と感想</li><li>受講者集め</li><li>講師・ファシリテーター</li><li>ワーク設計</li><li>映像制作</li><li>スライド・教材づくり</li><li>配信・司会の技術担当</li><li>親子向け・大人向けの内容の相談役</li></ul></div>
+<div class="cm" data-c="関わり方 02 セミナー"></div>
+</article><article class="it" id="item-3">
+<header><span class="it-n">03</span><h3>志ゲーム・アプリ</h3><span class="v ok">コンセプト決定</span></header>
+<p class="it-w">習慣化、レベル・クエスト、チャット、プロジェクト管理。プレイヤーとサポーターを一つのアプリで。</p>
+<dl><dt>いま</dt><dd>コンセプトと主な機能は決まっています。開発は、仕様を固めて見積もりを取る所からです。</dd><dt>これから必要なこと</dt><dd>仕様書、開発、中のコンテンツ（価値観・スキル・マインドセットのメニュー）</dd></dl>
+<div class="it-r"><b>力を借りたい役割</b><ul class="chips"><li>アプリの企画・仕様づくり</li><li>エンジニア</li><li>UI・UXデザイン</li><li>ゲーム設計（レベル・クエスト）</li><li>習慣化メニューやスキル講座のコンテンツ提供</li><li>テストユーザー</li><li>コミュニティの盛り上げ役</li></ul></div>
+<div class="cm" data-c="関わり方 03 志ゲーム・アプリ"></div>
+</article><article class="it" id="item-11">
+<header><span class="it-n">11</span><h3>ブランド・デザイン</h3><span class="v hold">仮称の段階</span></header>
+<p class="it-w">正式名称、ロゴ、世界観の見せ方</p>
+<dl><dt>いま</dt><dd>いまは仮称「志プロジェクト」です。</dd><dt>これから必要なこと</dt><dd>名称決定、ロゴ、デザインのトーン</dd></dl>
+<div class="it-r"><b>力を借りたい役割</b><ul class="chips"><li>名称案のアイデア出し</li><li>ロゴ・グラフィックデザイン</li><li>ブランドの世界観づくり</li><li>グッズ制作（Tシャツなど）</li></ul></div>
+<div class="cm" data-c="関わり方 11 ブランド・デザイン"></div>
+</article></div>
+<h3 class="grp"><span>ひろめる</span><small>人と場につなぐ・2項目</small></h3><div class="its"><article class="it" id="item-4">
+<header><span class="it-n">04</span><h3>広報・普及</h3><span class="v hold">方針あり</span></header>
+<p class="it-w">協力者集め、ファシリテーター育成、SNS・ウェブサイト、体験会</p>
+<dl><dt>いま</dt><dd>最初のお願いは「セミナーを受ける」「受ける人を探す」「協力者を探す」の3つです。</dd><dt>これから必要なこと</dt><dd>ウェブサイト、発信計画、ファシリテーターの仕組み</dd></dl>
+<div class="it-r"><b>力を借りたい役割</b><ul class="chips"><li>協力者・参加者の紹介</li><li>SNS発信</li><li>ウェブサイト制作</li><li>文章・コピー</li><li>写真・動画</li><li>体験会の主催</li><li>ファシリテーター</li><li>メディアやインフルエンサーとのつなぎ役</li><li>広告運用</li></ul></div>
+<div class="cm" data-c="関わり方 04 広報・普及"></div>
+</article><article class="it" id="item-8">
+<header><span class="it-n">08</span><h3>外部連携</h3><span class="v hold">方針あり</span></header>
+<p class="it-w">道場・塾・自治体・ボランティア団体・企業</p>
+<dl><dt>いま</dt><dd>クエストは、まず既存のボランティア募集から載せ、後で直接の依頼へ広げます。</dd><dt>これから必要なこと</dt><dd>連携先リスト、提携の形と料金</dd></dl>
+<div class="it-r"><b>力を借りたい役割</b><ul class="chips"><li>道場・塾・学校とのつなぎ役</li><li>自治体とのつなぎ役</li><li>ボランティア団体・NPOとのつなぎ役</li><li>企業の協賛窓口</li><li>海外とのつなぎ役（ウクライナなど）</li></ul></div>
+<div class="cm" data-c="関わり方 08 外部連携"></div>
+</article></div>
+<h3 class="grp"><span>ささえる</span><small>お金・法人・運営・計画・5項目</small></h3><div class="its"><article class="it" id="item-5">
+<header><span class="it-n">05</span><h3>資金・お金</h3><span class="v hold">仮決め</span></header>
+<p class="it-w">小口の会費・寄付、大口の支援、売上</p>
+<dl><dt>いま</dt><dd>出資（株）は受けません。大口の支援は、広告費などを出していただき、売上の一部からお返しする形を検討しています（条件と法的な形は、専門家に確認して決めます）。発起人は当面無報酬です。初期メンバーの報酬は役割ごとに見積もって記録し、利益が出たら後払いでお返しします。</dd><dt>これから必要なこと</dt><dd>お返しの条件の具体化、収支公開の仕組み</dd></dl>
+<div class="it-r"><b>力を借りたい役割</b><ul class="chips"><li>資金の支援者</li><li>支援者・企業の紹介</li><li>資金計画・ファイナンス担当</li><li>経理・会計</li><li>収支報告の作成</li><li>クラウドファンディングの運営</li></ul></div>
+<div class="cm" data-c="関わり方 05 資金・お金"></div>
+</article><article class="it" id="item-6">
+<header><span class="it-n">06</span><h3>法人・法務</h3><span class="v hold">方針あり</span></header>
+<p class="it-w">一般社団法人の設立、契約、将来の公益認定</p>
+<dl><dt>いま</dt><dd>一般社団法人で立ち上げる方針です。</dd><dt>これから必要なこと</dt><dd>設立手続き、大口の資金の法的な形の専門家確認、後払い報酬の会計処理</dd></dl>
+<div class="it-r"><b>力を借りたい役割</b><ul class="chips"><li>弁護士</li><li>税理士</li><li>司法書士・行政書士（法人設立）</li><li>金融規制に詳しい専門家</li><li>公益認定の経験者</li></ul></div>
+<div class="cm" data-c="関わり方 06 法人・法務"></div>
+</article><article class="it" id="item-7">
+<header><span class="it-n">07</span><h3>運営・組織</h3><span class="v hold">方針あり</span></header>
+<p class="it-w">意思決定のルール、役割分担、運営チーム</p>
+<dl><dt>いま</dt><dd>当面は発起人が最終決裁をします。いずれ運営チームに任せます。</dd><dt>これから必要なこと</dt><dd>役割一覧、意思決定と乗っ取り防止のルール</dd></dl>
+<div class="it-r"><b>力を借りたい役割</b><ul class="chips"><li>運営チームのメンバー</li><li>プロジェクトマネージャー</li><li>事務局（日程調整・連絡）</li><li>組織づくりの相談役</li><li>理事・監事の候補</li></ul></div>
+<div class="cm" data-c="関わり方 07 運営・組織"></div>
+</article><article class="it" id="item-9">
+<header><span class="it-n">09</span><h3>ロードマップ</h3><span class="v hold">想定あり</span></header>
+<p class="it-w">全体のスケジュール、何がどの順で動くか</p>
+<dl><dt>いま</dt><dd>プレ運用（非公開・30〜50人）→ 思想編の公開、という流れを想定しています。</dd><dt>これから必要なこと</dt><dd>時期を入れた一枚のロードマップ</dd></dl>
+<div class="it-r"><b>力を借りたい役割</b><ul class="chips"><li>全体スケジュールの管理役</li><li>進捗の確認役</li><li>プレ運用の参加者集め</li></ul></div>
+<div class="cm" data-c="関わり方 09 ロードマップ"></div>
+</article><article class="it" id="item-10">
+<header><span class="it-n">10</span><h3>効果測定</h3><span class="v hold">基準は仮</span></header>
+<p class="it-w">成功の基準と数字</p>
+<dl><dt>いま</dt><dd>テストの合格ラインは「日々取り組む人がいて、良いフィードバックが出ていること」です。</dd><dt>これから必要なこと</dt><dd>参加者数、継続率、志を立てた人数などの指標</dd></dl>
+<div class="it-r"><b>力を借りたい役割</b><ul class="chips"><li>指標づくりの相談役</li><li>データ分析</li><li>アンケート設計</li><li>教育効果の研究者</li></ul></div>
+<div class="cm" data-c="関わり方 10 効果測定"></div>
+</article></div>
+<h3 class="grp"><span>まもる</span><small>安全・規約・権利・4項目</small></h3><div class="its"><article class="it" id="item-12">
+<header><span class="it-n">12</span><h3>リスク・危機対応</h3><span class="v hold">方針あり</span></header>
+<p class="it-w">炎上、トラブル、未成年に関わる事故</p>
+<dl><dt>いま</dt><dd>政治的中立と、スピリチュアルと一線を置く方針を決めています。</dd><dt>これから必要なこと</dt><dd>対応手順、責任者、未成年と大人の安全ルール</dd></dl>
+<div class="it-r"><b>力を借りたい役割</b><ul class="chips"><li>危機対応・広報の経験者</li><li>子どもの安全に詳しい人（教育・福祉関係）</li><li>外から見た違和感を指摘するチェック役</li></ul></div>
+<div class="cm" data-c="関わり方 12 リスク・危機対応"></div>
+</article><article class="it" id="item-13">
+<header><span class="it-n">13</span><h3>個人情報・コンプライアンス</h3><span class="v yet">これから</span></header>
+<p class="it-w">未成年のデータ、利用規約、プライバシー</p>
+<dl><dt>いま</dt><dd>まだ手を付けていません。</dd><dt>これから必要なこと</dt><dd>規約とプライバシーポリシー、保護者同意の仕組み</dd></dl>
+<div class="it-r"><b>力を借りたい役割</b><ul class="chips"><li>規約・プライバシーポリシーの作成（弁護士）</li><li>ITセキュリティの専門家</li><li>保護者目線のチェック役</li></ul></div>
+<div class="cm" data-c="関わり方 13 個人情報・コンプライアンス"></div>
+</article><article class="it" id="item-14">
+<header><span class="it-n">14</span><h3>サポート窓口</h3><span class="v yet">これから</span></header>
+<p class="it-w">参加者・保護者からの問い合わせ</p>
+<dl><dt>いま</dt><dd>まだ手を付けていません。</dd><dt>これから必要なこと</dt><dd>窓口、よくある質問、対応担当</dd></dl>
+<div class="it-r"><b>力を借りたい役割</b><ul class="chips"><li>問い合わせ対応の担当</li><li>よくある質問の作成</li><li>参加者のフォロー役</li></ul></div>
+<div class="cm" data-c="関わり方 14 サポート窓口"></div>
+</article><article class="it" id="item-15">
+<header><span class="it-n">15</span><h3>知的財産</h3><span class="v yet">これから</span></header>
+<p class="it-w">コンテンツ・映像の著作権、共著者との権利</p>
+<dl><dt>いま</dt><dd>まだ手を付けていません。</dd><dt>これから必要なこと</dt><dd>権利の帰属と利用ルールの整理</dd></dl>
+<div class="it-r"><b>力を借りたい役割</b><ul class="chips"><li>著作権に詳しい弁護士</li><li>共著者・制作者との契約の整理役</li></ul></div>
+<div class="cm" data-c="関わり方 15 知的財産"></div>
+</article></div>
+
+<h2 id="faq"><span class="no">08</span>よくある質問</h2>
+<p class="sub">質問を押すと、答えが開きます。</p>
+<details class="faq"><summary><span class="q">Q1</span>何を求められるのですか</summary><div class="a"><p>セミナーを受ける、受ける人を探す、協力者を探す、広める活動、アプリや中のコンテンツ作りなどです。何をするかは、下の「関わり方」の一覧からご本人が選びます。関わる時間は、全員「できる範囲で」です。</p><div class="cm" data-c="よくある質問 Q1 何を求められるのですか"></div></div></details>
+<details class="faq"><summary><span class="q">Q2</span>本当に形になるのですか</summary><div class="a"><p><b>これまで：</b>前身にあたる志教育プロジェクトが、志を立てる場を学校で実際に回してきました。<br><b>いまあるもの：</b>企画書、書籍の素材集、この全体構成、セミナーの骨格。<br><b>これから：</b>書籍とセミナーの中身を具体化し、知り合いづてに参加者を集めて、プレのセミナーを回します。アプリは、AIを使った開発で原型ができています。</p><div class="cm" data-c="よくある質問 Q2 本当に形になるのですか"></div></div></details>
+<details class="faq"><summary><span class="q">Q3</span>誰がやっているのですか</summary><div class="a"><p>発起人は堀 勝哉です。小沢先生、出口光さん（志教育プロジェクト。顧問として人つなぎと普及）、溝江先生（関わり方はご本人が決めます）が関わっています。レノン・リー先生は検討中です。</p><div class="cm" data-c="よくある質問 Q3 誰がやっているのですか"></div></div></details>
+<details class="faq"><summary><span class="q">Q4</span>政治色はありませんか</summary><div class="a"><p>特定の政党や団体とは関係がありません。すべての政治勢力から等距離です。</p><div class="cm" data-c="よくある質問 Q4 政治色はありませんか"></div></div></details>
+<details class="faq"><summary><span class="q">Q5</span>お金は大丈夫ですか</summary><div class="a"><p>発起人は当面無報酬です。初期メンバーの報酬は、役割に応じて見積もって記録し、利益が出たら後払いでお返しします。出資（株）は受けません。大口の支援の形と条件は、専門家に確認して決めます。収入・支出・報酬の決め方は公開します。</p><div class="cm" data-c="よくある質問 Q5 お金は大丈夫ですか"></div></div></details>
+<details class="faq"><summary><span class="q">Q6</span>自分にとって何が得ですか</summary><div class="a"><p>つながり、学び、後払いの報酬、名誉があります。それに加えて、協力すること自体が、志ゲームのプレイになります。創設期から関わる人は「ゲームマスター」です。</p><div class="cm" data-c="よくある質問 Q6 自分にとって何が得ですか"></div></div></details>
+<details class="faq"><summary><span class="q">Q7</span>意見は言えますか</summary><div class="a"><p>言えます。当面の最終決裁は発起人ですが、良い提案は歓迎します。このページの各項目にある「コメントする」からも送れます。</p><div class="cm" data-c="よくある質問 Q7 意見は言えますか"></div></div></details>
+
+<h2 id="who"><span class="no">09</span>発起人について</h2>
+<p class="sub">発起人は、表に立つ人ではなく、仕組みを作る人です。</p>
+<div class="who">
+  <div class="card"><h3>堀 勝哉</h3><ul class="plain"><li>子供の頃から剣道。30代後半に志体術と出会い、自分の志を立て、伝える側として活動してきました。</li><li>禅道会オンライン道場を立ち上げ、自分も試合に出ています。</li><li>世界の武道人口は数億人といわれます。この土台を、志を届ける道にします。</li></ul></div>
+  <div class="card"><h3>この志に至った出来事</h3><ul class="plain"><li>戦時下のウクライナで、たくさんの子供達が空手着を着て稽古する姿を見たこと</li><li>10代の頃、ゲームで目覚めたワンネス意識</li><li>すでに動いている人たちに出会い、観客席から降りたこと</li></ul></div>
+</div>
+<div class="callout gold">「人類の意識レベルの神化に貢献し、地球を愛と調和の星にすること」が、私の志です。</div>
+<p><b>10年後に見たい光景：</b>志を立てた世界各国の若者が、自分たちで集まり、明るい未来へのプロジェクトを進めている。発起人は、その中心にいません。</p>
+<div class="cm" data-c="09 発起人について"></div>
+
+<h2 id="next"><span class="no">10</span>最初の一歩</h2>
+<p class="sub">お願いは3つです。できるものを1つだけでもかまいません。義務はなく、いつでもやめられます。</p>
+<div class="steps">
+  <div class="key"><small>STEP 1</small><b>セミナーを受ける</b><span>まず、ご自身で体験してください。感想が、いちばんの力になります。</span></div>
+  <div class="key"><small>STEP 2</small><b>受ける人を探す</b><span>身近な、将来を考え始めた若者や、その保護者に声をかけてください。</span></div>
+  <div class="key"><small>STEP 3</small><b>協力者を探す</b><span>「この人なら」という方を、ご紹介ください。</span></div>
+</div>
+<div class="card">
+  <h3>このページ全体へのご感想</h3>
+  <p>分かりにくかった所、引っかかった所、足りないと感じた所を、ぜひ教えてください。</p>
+  <div class="cm" data-c="全体へのご感想"></div>
+  <p class="note" style="margin-bottom:0">ご連絡先：kokorozashi.w@gmail.com</p>
+</div>
+
+<footer>
+  <p>志プロジェクトは仮称です。正式名称は、決まり次第お知らせします。このページは2026年11月22日時点の構想で、「仮」「検討中」と書いた所は変わることがあります。</p>
+  <p>発起人 堀 勝哉</p>
+</footer>
+</div>
+
+<script>
+// コメントの送り先。endpoint（Google フォームの formResponse の URL）と欄の番号が入っていれば、ボタン1つで送る。
+// 空の間は、まとめた文をメールで送る（または写して貼る）形になる。
+var CFG = {
+  to: "kokorozashi.w@gmail.com",
+  endpoint: "",
+  fields: { item: "", name: "", text: "" },
+  page: "志プロジェクト ご案内 2026-11-22版"
+};
+(function () {
+  var KEY = "kz_comments_v1", NAME = "kz_name_v1";
+  var store = {};
+  try { store = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) { store = {}; }
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(store)); } catch (e) {} }
+  function list() { return Object.keys(store).filter(function (k) { return (store[k] || "").trim(); }); }
+
+  var bar = document.createElement("div");
+  bar.id = "bar";
+  bar.innerHTML = '<div class="in"><div class="cnt"><span id="cnt"></span><small>書いたコメントは、この端末に自動で残ります</small></div>' +
+    '<input id="nm" type="text" placeholder="お名前" autocomplete="name" aria-label="お名前">' +
+    '<button class="btn" id="send" type="button">まとめて送る</button></div>';
+  document.body.appendChild(bar);
+  var dlg = document.createElement("div");
+  dlg.id = "sent";
+  dlg.innerHTML = '<div class="box"><h3 id="dt" style="margin-top:0"></h3><p id="dm"></p><pre id="dp"></pre>' +
+    '<p style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:0"><a class="btn" id="dmail" style="text-decoration:none">メールで送る</a>' +
+    '<button class="btn sub" id="dcopy" type="button">文を写す</button><button class="btn sub" id="dclose" type="button">閉じる</button></p></div>';
+  document.body.appendChild(dlg);
+  var nm = document.getElementById("nm");
+  try { nm.value = localStorage.getItem(NAME) || ""; } catch (e) {}
+  nm.addEventListener("input", function () { try { localStorage.setItem(NAME, nm.value); } catch (e) {} });
+
+  function refresh() {
+    var n = list().length;
+    document.getElementById("cnt").textContent = "コメント " + n + "件";
+    bar.classList.toggle("on", n > 0);
+  }
+  Array.prototype.forEach.call(document.querySelectorAll(".cm[data-c]"), function (el) {
+    var k = el.getAttribute("data-c");
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "cm-b";
+    var f = document.createElement("div"); f.className = "cm-f";
+    var ta = document.createElement("textarea");
+    ta.placeholder = "感想・質問・気になった所・「ここなら手伝える」など、ひとことでも歓迎です";
+    ta.setAttribute("aria-label", k + " へのコメント");
+    ta.value = store[k] || "";
+    var st = document.createElement("div"); st.className = "cm-s";
+    f.appendChild(ta); f.appendChild(st);
+    el.appendChild(b); el.appendChild(f);
+    function label() {
+      var has = !!(store[k] || "").trim();
+      b.classList.toggle("has", has);
+      b.textContent = has ? "コメントを書きました（直す）" : "この項目にコメントする";
+    }
+    b.addEventListener("click", function () { el.classList.toggle("open"); if (el.classList.contains("open")) ta.focus(); });
+    ta.addEventListener("input", function () {
+      store[k] = ta.value; if (!ta.value.trim()) delete store[k];
+      save(); label(); refresh();
+      st.textContent = ta.value.trim() ? "下の「まとめて送る」で届きます" : "";
+    });
+    label();
+  });
+  refresh();
+
+  function compose() {
+    var who = nm.value.trim() || "（お名前なし）";
+    var out = ["【" + CFG.page + "】へのコメント", "お名前：" + who, ""];
+    list().forEach(function (k) { out.push("■ " + k); out.push(store[k].trim()); out.push(""); });
+    return out.join("\n");
+  }
+  function show(title, msg, text, mail) {
+    document.getElementById("dt").textContent = title;
+    document.getElementById("dm").textContent = msg;
+    document.getElementById("dp").textContent = text;
+    var a = document.getElementById("dmail");
+    a.style.display = mail ? "" : "none";
+    if (mail) a.href = "mailto:" + CFG.to + "?subject=" + encodeURIComponent("【志プロジェクト】ご案内へのコメント") + "&body=" + encodeURIComponent(text);
+    document.getElementById("dcopy").style.display = mail ? "" : "none";
+    dlg.classList.add("on");
+  }
+  document.getElementById("dclose").addEventListener("click", function () { dlg.classList.remove("on"); });
+  document.getElementById("dcopy").addEventListener("click", function () {
+    var t = document.getElementById("dp").textContent, btn = this;
+    function done() { btn.textContent = "写しました"; }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(done, function () {});
+    else { var r = document.createRange(); r.selectNodeContents(document.getElementById("dp")); var s = getSelection(); s.removeAllRanges(); s.addRange(r); try { document.execCommand("copy"); done(); } catch (e) {} }
+  });
+  document.getElementById("send").addEventListener("click", function () {
+    var keys = list(); if (!keys.length) return;
+    var text = compose();
+    if (!CFG.endpoint) {
+      show("コメントを送る", "「メールで送る」を押すと、メールの画面にこの文が入ります。そのまま送信してください。メールが開かないときは「文を写す」で写して、" + CFG.to + " か、堀へのメッセージに貼ってください。", text, true);
+      return;
+    }
+    var btn = this; btn.disabled = true; btn.textContent = "送っています…";
+    var who = nm.value.trim() || "（お名前なし）";
+    Promise.all(keys.map(function (k) {
+      var fd = new URLSearchParams();
+      fd.append(CFG.fields.item, k); fd.append(CFG.fields.name, who); fd.append(CFG.fields.text, store[k].trim());
+      return fetch(CFG.endpoint, { method: "POST", mode: "no-cors", body: fd });
+    })).then(function () {
+      btn.disabled = false; btn.textContent = "まとめて送る";
+      show("送りました。ありがとうございます", keys.length + "件のコメントが届きました。続きを書いて、もう一度送ることもできます。", text, false);
+    }, function () {
+      btn.disabled = false; btn.textContent = "まとめて送る";
+      show("送れませんでした", "通信がうまくいきませんでした。お手数ですが、メールで送るか、文を写して貼ってください。", text, true);
+    });
+  });
+})();
+
+</script>
+</html>
