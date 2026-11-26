@@ -561,9 +561,10 @@ footer{margin-top:3.5rem;font-size:.84rem;color:var(--ink-faint);border-top:1px 
 // 空の間は、まとめた文をメールで送る（または写して貼る）形になる。
 var CFG = {
   to: "kokorozashi.w@gmail.com",
-  endpoint: "",
-  fields: { item: "", name: "", text: "" },
-  regEndpoint: "",
+  endpoint: "https://docs.google.com/forms/d/e/1FAIpQLSdVrUjYGf5r3XS9nUuy8eFKNzkt6El0h1dHauqmxNba5LJezg/formResponse",
+  fields: { item: "entry.2036797077", name: "entry.1185573588", text: "entry.158682068" },
+  regEndpoint: "https://docs.google.com/forms/d/e/1FAIpQLSfsEtHywRE1CRsunNwswfE_yxEY1h9xRoI7gXN4AgEZHPlauw/formResponse",
+  regFields: { name: "entry.910113370", mail: "entry.1231644672", age: "entry.410287839", role: "entry.310191985", com: "entry.1804074387", note: "entry.342428562" },
   page: "志プロジェクト ご案内 2026-11-22版"
 };
 (function () {
@@ -653,6 +654,21 @@ var CFG = {
       var msg = document.getElementById("rg-msg");
       if (!v("rg-name") || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v("rg-mail"))) { msg.textContent = "お名前とメールアドレスを入れてください。"; return; }
       msg.textContent = "";
+      if (CFG.regEndpoint) {
+        var f = CFG.regFields, fd = new URLSearchParams();
+        fd.append(f.name, v("rg-name")); fd.append(f.mail, v("rg-mail")); fd.append(f.age, v("rg-age") || "（未選択）");
+        fd.append(f.role, v("rg-role") || "（未選択）"); fd.append(f.com, document.getElementById("rg-com").checked ? "関心がある" : "―");
+        fd.append(f.note, v("rg-note") || "―");
+        rgBtn.disabled = true; rgBtn.textContent = "送っています…";
+        fetch(CFG.regEndpoint, { method: "POST", mode: "no-cors", body: fd }).then(function () {
+          rgBtn.disabled = false; rgBtn.textContent = "登録する";
+          msg.textContent = "ご登録ありがとうございます。届きましたら、参加者IDとナンバーをメールでお知らせします。";
+        }, function () {
+          rgBtn.disabled = false; rgBtn.textContent = "登録する";
+          msg.textContent = "送れませんでした。お手数ですが、" + CFG.to + " までメールでお知らせください。";
+        });
+        return;
+      }
       var text = ["【志プロジェクト】賛同の登録", "お名前：" + v("rg-name"), "メール：" + v("rg-mail"), "年代：" + (v("rg-age") || "（未選択）"),
         "参加の形：" + (v("rg-role") || "（未選択）"), "立ち上げ委員会：" + (document.getElementById("rg-com").checked ? "関心がある" : "―"),
         "ひとこと：" + (v("rg-note") || "―")].join("\n");
